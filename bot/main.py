@@ -9,4 +9,8 @@ client = commands.Bot(command_prefix = '*')
 async def on_ready():
     print("Bot is ready!")
 
+async def on_message(message):
+    if (message.content.lower() == "ping"):
+        channel.send("pong")
+
 client.run(botToken)
