@@ -13,4 +13,9 @@ async def on_message(message):
     if (message.content.lower() == "ping"):
         channel.send("pong")
 
+@client.command()
+async def ping(ctx):
+    await ctx.send("Pong!")
+
+
 client.run(botToken)
