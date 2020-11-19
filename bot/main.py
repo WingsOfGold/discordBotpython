@@ -20,14 +20,14 @@ async def _doyouknow(ctx):
               "Bell rings, ringning bells, senta's telling you! SAY YOUR PRAYERS! Bye:raised_back_of_hand:",
               "See you homie :woozy_face:",
               "Till another time :upside_down:",
-              "Pew it up, Die aside, Pie it down, then next time, maybe PewDiePie shall tell you bye :joy:"];
+              "Pew it up, Die aside, Pie it down, then next time, maybe PewDiePie shall tell you bye :joy:"]
     await ctx.send(f'{random.choice(byeMsg)}')
 
 @client.command(aliases=['bye', 'cya', 'cu', 'See you later', 'Till we meet', 'Till our path cross'])
 async def _doyouknow(ctx):
     gmMsg = ["Good morning :smile:", "Oh hello! Break a leg :joy:",
              "Good morning sleephead :upside_down:",
-             "YO! I bought you a cow so you can drink milk!! Although it's a binary cow :cow2:, here's your binary milk :milk:"];
+             "YO! I bought you a cow so you can drink milk!! Although it's a binary cow :cow2:, here's your binary milk :milk:"]
     await ctx.send(f'{random.choice(gmMsg)}')
 
 @client.command()
