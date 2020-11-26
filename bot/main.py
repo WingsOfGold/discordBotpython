@@ -3,8 +3,9 @@ import random
 from discord.ext import commands
 
 botToken = "Nzc2NDAxMTQ3OTc1NTY1MzEz.X60V6g.yN4Y4wmj4RR2yGaXsbhSWUlUv7g"
-
 client = commands.Bot(command_prefix = '*')
+welcomeCategory = false
+welcomeText = false
 
 @client.event
 async def on_ready():
@@ -12,8 +13,8 @@ async def on_ready():
 
 @client.command()
 async def wlc(ctx):
-    await ctx.guild.create_category('Testing')
-    await ctx.guild.create_text_channel('Welcome :wave:')
+    welcomeCategory = await ctx.guild.create_category('Testing')
+    welcomeText = await ctx.guild.create_text_channel('Welcome')
 
 @client.command()
 async def ping(ctx):
@@ -21,11 +22,13 @@ async def ping(ctx):
 
 @client.event
 async def on_member_join(member):
-    print(f'{member} has came!')
+    if (welcomeText):
+        welcomeText.send(f'{member} has came!')
 
 @client.event
 async def on_member_remove(member):
-    print(f'{member} has left!')
+    if (welcomeText):
+        welcomeText.send (f'{member} has left!')
 
 @client.command(aliases=['bye', 'cya', 'cu', 'See you later', 'Till we meet', 'Till our path cross'])
 async def _doyouknow(ctx):
