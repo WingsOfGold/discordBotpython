@@ -56,11 +56,4 @@ async def _8ball(ctx, *, question):
                  'Very doubtful.']
     await ctx.send(f'Question: {question}\nAnswer: {random.choice(responses)}')
 
-@client.command(aliases=['bye', 'cya', 'cu', 'See you later', 'Till we meet', 'Till our path cross'])
-async def _doyouknow(ctx):
-    gmMsg = ["Good morning :smile:", "Oh hello! Break a leg :joy:",
-             "Good morning sleephead :upside_down:",
-             "YO! I bought you a cow so you can drink milk!! Although it's a binary cow :cow2:, here's your binary milk :milk:"]
-    await ctx.send(f'{random.choice(gmMsg)}')
-
 client.run(botToken)
