@@ -10,6 +10,14 @@ client = commands.Bot(command_prefix = '*')
 async def on_ready():
     print("Bot is ready!")
 
+@client.event
+async def on_member_join(member):
+    print(f'{member} has came!")
+
+@client.event
+async def on_member_remove(member):
+    print(f'{member} has left!')
+
 @client.command(aliases=['bye', 'cya', 'cu', 'See you later', 'Till we meet', 'Till our path cross'])
 async def _doyouknow(ctx):
     gmMsg = ["Good morning :smile:", "Oh hello! Break a leg :joy:",
