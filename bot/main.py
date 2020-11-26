@@ -22,16 +22,6 @@ async def wlc(ctx):
 async def ping(ctx):
     await ctx.send(f"Pong? Ah ping: {round(client.latency *1000)}ms")
 
-@client.event
-async def on_member_join(member):
-    if (welcomeText):
-        welcomeText.send(f'{member} has came!')
-
-@client.event
-async def on_member_remove(member):
-    if (welcomeText):
-        welcomeText.send (f'{member} has left!')
-
 @client.command(aliases=['8ball'])
 async def _8ball(ctx, *, question):
     responses = ['It is certain.',
