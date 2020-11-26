@@ -6,6 +6,10 @@ botToken = "Nzc2NDAxMTQ3OTc1NTY1MzEz.X60V6g.yN4Y4wmj4RR2yGaXsbhSWUlUv7g"
 
 client = commands.Bot(command_prefix = '*')
 
+@client.command()
+async def wlc(ctx):
+    channel = await guild.create_text_channel('Welcome :wave:')
+
 @client.event
 async def on_ready():
     print("Bot is ready!")
