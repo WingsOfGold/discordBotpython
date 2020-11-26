@@ -13,9 +13,10 @@ async def on_ready():
 
 @client.command()
 async def wlc(ctx):
-    global welcomeCategory, welcomeText
+    global welcomeCategory
+    global welcomeText
     welcomeCategory = await ctx.guild.create_category('Testing')
-    welcomeText = await ctx.guild.create_text_channel('Welcome', category=welcomeCategory)
+    welcomeText = await ctx.guild.create_text_channel('Welcome')
 
 @client.command()
 async def ping(ctx):
