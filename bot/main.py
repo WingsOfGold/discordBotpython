@@ -8,6 +8,7 @@ client = commands.Bot(command_prefix = '*')
 
 @client.command()
 async def wlc(ctx):
+    await ctx.send("test")
     channel = await guild.create_text_channel('Welcome :wave:')
 
 @client.event
