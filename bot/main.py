@@ -12,6 +12,7 @@ async def on_ready():
 
 @client.command()
 async def wlc(ctx):
+    guild = ctx.message.guild
     guild.create_text_channel('Welcome :wave:')
 
 @client.command()
