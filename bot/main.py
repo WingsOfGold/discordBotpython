@@ -31,6 +31,30 @@ async def on_member_remove(member):
     if (welcomeText):
         welcomeText.send (f'{member} has left!')
 
+@client.command(aliases=['8ball'])
+async def _8ball(ctx, *, question):
+    responses = ['It is certain.',
+                 'It is decidedly so.',
+                 'Without a doubt.',
+                 'Yes - definitely.',
+                 'You may rely on it.',
+                 'As I see it, yes.',
+                 'Most likely.',
+                 'Outlook good.',
+                 'Yes.',
+                 'Signs point to yes.',
+                 'Reply hazy, rey again.',
+                 'Ask again later.',
+                 'better not tell you now.',
+                 'Cannot predict now.',
+                 'Concentrate and ask again.',
+                 "Don't count on it.",
+                 'My reply is no.',
+                 'My sources say no.',
+                 'Outlook not so good.',
+                 'Very doubtful.']
+    await ctx.send(f'Question: {question}\nAnswer: {random.choice(responses)}')
+
 @client.command(aliases=['bye', 'cya', 'cu', 'See you later', 'Till we meet', 'Till our path cross'])
 async def _doyouknow(ctx):
     gmMsg = ["Good morning :smile:", "Oh hello! Break a leg :joy:",
