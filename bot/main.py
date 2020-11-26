@@ -12,7 +12,7 @@ async def on_ready():
 
 @client.event
 async def on_member_join(member):
-    print(f'{member} has came!")
+    print(f'{member} has came!')
 
 @client.event
 async def on_member_remove(member):
