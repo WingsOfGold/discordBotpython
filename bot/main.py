@@ -4,8 +4,8 @@ from discord.ext import commands
 
 botToken = "Nzc2NDAxMTQ3OTc1NTY1MzEz.X60V6g.yN4Y4wmj4RR2yGaXsbhSWUlUv7g"
 client = commands.Bot(command_prefix = '*')
-welcomeCategory = false
-welcomeText = false
+welcomeCategory = False
+welcomeText = False
 
 @client.event
 async def on_ready():
@@ -45,5 +45,15 @@ async def _8ball(ctx, *, question):
                  'Outlook not so good.',
                  'Very doubtful.']
     await ctx.send(f'Question: {question}\nAnswer: {random.choice(responses)}')
+
+@client.event
+async def on_member_join(member):
+    if (welcomeText):
+        welcomeText.send(f'{member} has came!')
+
+@client.event
+async def on_member_remove(member):
+    if (welcomeText):
+        welcomeText.send (f'{member} has left!')
 
 client.run(botToken)
