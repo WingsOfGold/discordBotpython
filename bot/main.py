@@ -8,7 +8,7 @@ gmMsgNum = 0;
 
 botToken = "Nzc2NDAxMTQ3OTc1NTY1MzEz.X60V6g.yN4Y4wmj4RR2yGaXsbhSWUlUv7g"
 
-client = commands.Bot()
+client = commands.Bot(command_prefix = '')
 
 @client.event
 async def on_ready():
