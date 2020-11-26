@@ -12,7 +12,8 @@ async def on_ready():
 
 @client.command()
 async def wlc(ctx):
-    ctx.message.guild.create_text_channel('Welcome :wave:')
+    await ctx.guild.create_category('Testing')
+    await ctx.guild.create_text_channel('Welcome :wave:')
 
 @client.command()
 async def ping(ctx):
