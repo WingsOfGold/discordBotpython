@@ -26,11 +26,11 @@ def getChannel(channels, name):
 async def on_ready():
     await client.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name="u snitching"))
 
-@client.command()
+@client.command(aliases=['wlcCategoryOn'])
 async def wlcCategoryOn(ctx):
     ctx.send("TEST")
 """
-@client.command()
+@client.command(aliases=['wlcCategoryOff'])
 async def wlcCategoryOff(ctx)
     wlcCategory = getChannel(ctx.guild.channels, wlcCategoryName)
     if (wlcCategory):
