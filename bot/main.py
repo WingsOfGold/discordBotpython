@@ -28,8 +28,8 @@ async def on_ready():
 @client.command()
 async def wlcCtgOn(ctx):        
     svrsCategory = getChannel(ctx.guild.channels, svrsCategoryName) or False
-    wlcCategory = getChannel(ctx.guild.channels, wlcCategoryName) or False
-    wlcCategory = await ctx.guild.create_category(wlcTextChannelName, position=num)
+   #wlcCategory = getChannel(ctx.guild.channels, wlcCategoryName) or False
+    wlcCategory = await ctx.guild.create_category(wlcCategoryName, position=num)
     #if (wlcCategory):
     #    await ctx.reply("It's already On!")
     #else:
