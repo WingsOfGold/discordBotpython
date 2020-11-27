@@ -29,7 +29,8 @@ async def on_ready():
                     
 @client.command()
 async def wlcOn(ctx):
-    await ctx.send(channelet())
+    awa = channelet()
+    await ctx.send(f'{awa}')
     #for channel in ctx.guild.channels:
         #await ctx.send(f'{channel.name}')
 
