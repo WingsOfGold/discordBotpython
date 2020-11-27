@@ -33,7 +33,7 @@ async def on_ready():
 @client.command()
 async def wlcOn(ctx):
     aC = getChannel(ctx.guild, "____________welcome____________")
-    ctx.send(aC.name)
+    ctx.send(str(aC))
     aC1 = getChannel(ctx.guild, "Welcome")
     if (aC and (not aC1)):
         ctx.send(ac.name)
