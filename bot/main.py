@@ -3,7 +3,7 @@ import random
 from discord.ext import commands
 
 wlcCategoryName = "____________welcome____________"
-wlcTextChannelName = "Welcome :wave:"
+wlcChannelName = "Welcome :wave:"
 
 botToken = "Nzc2NDAxMTQ3OTc1NTY1MzEz.X60V6g.yN4Y4wmj4RR2yGaXsbhSWUlUv7g"
 client = commands.Bot(command_prefix = '*')
@@ -22,10 +22,11 @@ async def on_ready():
 @client.command()
 async def wlcOn(ctx):
     wlcCategory = getChannel(ctx.guild.channels, wlcCategoryName)
-    if (wlcCategory):
+    wlcChannel = getChannel(ctx.guild.channels, wlcChannelName)
+    if (wlcChannel):
         await ctx.reply("It's already On!")
     else:
-        await ctx.guild.create_text_channel(wlcTextChannelName, category=wlcCategory, position=2)
+        await ctx.guild.create_voice_channel(wlcTextChannelName, category=wlcCategory, position=2)
         await ctx.reply("Success amigo")
 
 @client.command()
