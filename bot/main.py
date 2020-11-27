@@ -1,5 +1,5 @@
 import discord
-from bot import test as ex
+import test.py
 import random
 from discord.ext import commands
 
