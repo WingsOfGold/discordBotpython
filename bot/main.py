@@ -13,6 +13,7 @@ async def on_ready():
 
 @client.command()
 async def svstats(ctx):
+    ctx.send("A")
     
 @client.command()
 async def wlc(ctx):
