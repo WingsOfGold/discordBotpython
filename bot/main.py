@@ -29,7 +29,7 @@ async def on_ready():
                     
 @client.command()
 async def wlcOn(ctx):
-    await ctx.send(f"Phase 1 is Complete {channel(ctx.guild, "general"}")
+    await ctx.send(f"Phase 1 is Complete {channel(ctx.guild, "general")}")
     #for channel in ctx.guild.channels:
         #await ctx.send(f'{channel.name}')
 
