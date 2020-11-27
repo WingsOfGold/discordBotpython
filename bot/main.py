@@ -2,8 +2,16 @@ import discord
 import random
 from discord.ext import commands
 
+serverName = "Diamond"
+svrsCategoryName = serverName + "'s Stats"
+svrsTotalName = "All Members: "
+svrsMembersName = "Members: "
+svrsBotsName = "Bots: "
+
 wlcCategoryName = "____________welcome____________"
 wlcChannelName = "Welcome"
+wlcRulesName = "Rules"
+wlcAnouncementsName = "Anouncements"
 
 botToken = "Nzc2NDAxMTQ3OTc1NTY1MzEz.X60V6g.yN4Y4wmj4RR2yGaXsbhSWUlUv7g"
 client = commands.Bot(command_prefix = '*')
@@ -13,14 +21,34 @@ def getChannel(channels, name):
         if (channel.name == name):
             return channel
     return False
-        
+
 @client.event
 async def on_ready():
     await client.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name="u snitching"))
-                    
+
 @client.command()
-async def wlcOn(ctx):
-    await ctx.guild.create_category(wlcTextChannelName, position=1)
+async def wlcCategoryOn(ctx):
+    svrsCategory = getChannel(Ctx.guild.channels, svrsCategoryName)
+    wlcCategory = getChannel(ctx.guild.channels, wlcCategoryName)
+    wlcRules = getChannel(ctx.guild.channels, wlcCategoryName)
+    if (wlcCategory):
+        await ctx.reply("It's already On!")
+    else:
+        num = 0
+        if (svrsCategory):
+            num = 1
+        wlcCategory = await ctx.guild.create_category(wlcTextChannelName, position=num)
+        await ctx.guild.create_text_channel(wlcTextChannelName, category=wlcCategory, position=2)
+        await ctx.reply("Success amigo")
+
+@client.command()
+async def wlcCategoryOff()
+    wlcCategory = getChannel(ctx.guild.channels, wlcCategoryName)
+    if (wlcCategory):
+        for channel in wlcCategory.channels:
+            channel.delete()
+    else:
+        ctx.send("It's already off!")
 
 @client.command()
 async def ping(ctx):
