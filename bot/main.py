@@ -11,7 +11,7 @@ client = commands.Bot(command_prefix = '*')
 
 @client.event
 async def on_ready():
-    await client.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name="you snitching"))
+    await client.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name="u snitching"))
     print("Bot is ready!")
                     
 @client.command()
