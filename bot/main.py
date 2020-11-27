@@ -22,7 +22,7 @@ async def channelCreate(type, guild, name, _overwrites=None, _category=None, _po
         channel = await guild.create_voice_channel(name, overwrites=_overwrites, category=_category, position=_position, topic=_topic, slowmode_delay=_slowmode_delay, nsfw=_nsfw, reason=_reason)
     else:
         channel = await guild.create_category(name, overwrites=_overwrites, category=_category, position=_position, topic=_topic, slowmode_delay=_slowmode_delay, nsfw=_nsfw, reason=_reason)
-    return Channel or False
+    return True
 
 @client.event
 async def on_ready():
