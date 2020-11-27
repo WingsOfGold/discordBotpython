@@ -10,22 +10,6 @@ async def channelet():
 @client.event
 async def on_ready():
     print("Bot is ready!")
-
-#@client.event
-#async def on_member_join(member):
-#    welcomeText.send(f'{member} has came!')
-
-#@client.event
-#async def on_member_remove(member):
-#    welcomeText.send(f'{member} has left!')
-
-#@client.command()
-#async def svstatson(ctx):
-#    aC = getChannel(ctx.guild, "")
-
-#@client.command()
-#async def svstatsoff(ctx):
-#    ac = getChannel(ctx.guild, "
                     
 @client.command()
 async def wlcOn(ctx):
