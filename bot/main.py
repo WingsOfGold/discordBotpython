@@ -5,11 +5,6 @@ from discord.ext import commands
 botToken = "Nzc2NDAxMTQ3OTc1NTY1MzEz.X60V6g.yN4Y4wmj4RR2yGaXsbhSWUlUv7g"
 client = commands.Bot(command_prefix = '*')
 
-def getChannel(guild, channelName=None):
-    for channel in guild.channels:
-        if (channel.name == channelName):
-            return channel or False
-
 @client.event
 async def on_ready():
     print("Bot is ready!")
@@ -32,8 +27,8 @@ async def on_ready():
                     
 @client.command()
 async def wlcOn(ctx):
-    aC = getChannel(ctx.guild, "____________welcome____________")
-    ctx.send(str(aC))
+    aC = discord.utils.get(ctx.guild.channels, name='____________welcome____________')
+    ctx.send(str(aC.name))
     aC1 = getChannel(ctx.guild, "Welcome")
     if (aC and (not aC1)):
         ctx.send(ac.name)
