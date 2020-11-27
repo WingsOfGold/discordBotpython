@@ -1,15 +1,10 @@
 import discord
+import exports
 import random
 from discord.ext import commands
 
 botToken = "Nzc2NDAxMTQ3OTc1NTY1MzEz.X60V6g.yN4Y4wmj4RR2yGaXsbhSWUlUv7g"
 client = commands.Bot(command_prefix = '*')
-
-def getChannel(channels, name=None):
-    for channel in channels:
-        if (channel.name == name):
-            return channel
-    return False
 
 @client.event
 async def on_ready():
