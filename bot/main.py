@@ -29,12 +29,7 @@ async def on_ready():
 async def wlcOn(ctx):
     ctx.send("Phase 1 is Complete")
     for channel in ctx.guild.channels:
-        ctx.send("Phase 3 is complete")
-        if (channel.name == '____________welcome____________'):
-            ctx.send("Worked")
-            channel.delete()
-        else:
-            ctx.send("Still fetching")
+        ctx.send("worked")
     ctx.send("Haven't found a thing")
 
 @client.command()
