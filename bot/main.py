@@ -1,14 +1,27 @@
 import discord
-import exports as ex
 import random
 from discord.ext import commands
 
 wlcCategoryName = "____________welcome____________"
 wlcTextChannelName = "Welcome :wave:"
-*ping
+
 botToken = "Nzc2NDAxMTQ3OTc1NTY1MzEz.X60V6g.yN4Y4wmj4RR2yGaXsbhSWUlUv7g"
 client = commands.Bot(command_prefix = '*')
 
+def getChannel(channels, name):
+    for channel in channels:
+        if (channel.name == name):
+            return channel
+    return False
+
+async def channelCreate(type, guild, name, _overwrites=None, _category=None, _position=0, _topic=None, _slowmode_delay=None, _nsfw=False, _reason=None):
+    if (type == "txt"):
+        channel = await guild.create_text_channel(name, overwrites=_overwrites, category=_category, position=_position, topic=_topic, slowmode_delay=_slowmode_delay, nsfw=_nsfw, reason=_reason)
+    elif (type == "vc"):
+        channel = await guild.create_voice_channel(name, overwrites=_overwrites, category=_category, position=_position, topic=_topic, slowmode_delay=_slowmode_delay, nsfw=_nsfw, reason=_reason)
+    else:
+        channel = await guild.create_category(name, overwrites=_overwrites, category=_category, position=_position, topic=_topic, slowmode_delay=_slowmode_delay, nsfw=_nsfw, reason=_reason)
+        
 @client.event
 async def on_ready():
     await client.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name="u snitching"))
@@ -16,11 +29,11 @@ async def on_ready():
                     
 @client.command()
 async def wlcOn(ctx):
-    wlcCategory = True#getChannel(ctx.guild.channels, wlcCategoryName)
+    wlcCategory = getChannel(ctx.guild.channels, wlcCategoryName)
     if (wlcCategory):
         await ctx.reply("It's already On!")
     else:
-        #channelCreate("txt", ctx.guild, wlcTextChannelName, _category=wlcCategory, _position=2)
+        channelCreate("txt", ctx.guild, wlcTextChannelName, _category=wlcCategory, _position=2)
         await ctx.reply("Success amigo")
 
 @client.command()
