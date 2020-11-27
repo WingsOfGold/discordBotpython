@@ -27,7 +27,7 @@ async def on_ready():
                     
 @client.command()
 async def wlcaff(ctx):
-    ctx.send("Phase 1 is Complete")
+    await ctx.send("Phase 1 is Complete")
 
 @client.command()
 async def ping(ctx):
