@@ -30,16 +30,6 @@ async def wlcaff(ctx):
     ctx.send("Phase 1 is Complete")
 
 @client.command()
-async def wlcOff(ctx):
-    aC = getChannel(ctx.guild, "____________welcome____________")
-    aC1 = getChannel(ctx.guild, "Welcome")
-    if (aC and aC1):
-        aC1.delete()
-        if (len(aC.channels) == 0):
-            aC.delete()
-        
-
-@client.command()
 async def ping(ctx):
     await ctx.send(f"Pong? Ah ping: {round(client.latency *1000)}ms")
 
