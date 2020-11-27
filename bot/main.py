@@ -28,7 +28,7 @@ async def on_ready():
 
 @client.command()
 async def wlcCategoryOn(ctx):
-    svrsCategory = getChannel(Ctx.guild.channels, svrsCategoryName)
+    svrsCategory = getChannel(ctx.guild.channels, svrsCategoryName)
     wlcCategory = getChannel(ctx.guild.channels, wlcCategoryName)
     wlcRules = getChannel(ctx.guild.channels, wlcCategoryName)
     if (wlcCategory):
