@@ -40,7 +40,7 @@ async def wlcCategoryOn(ctx):
         wlcCategory = await ctx.guild.create_category(wlcTextChannelName, position=num)
         await ctx.guild.create_text_channel(wlcTextChannelName, category=wlcCategory, position=2)
         await ctx.reply("Success amigo")
-
+"""
 @client.command()
 async def wlcCategoryOff(ctx)
     wlcCategory = getChannel(ctx.guild.channels, wlcCategoryName)
@@ -51,7 +51,7 @@ async def wlcCategoryOff(ctx)
         ctx.send("Success mon amie")
     else:
         ctx.send("It's already off!")
-
+"""
 @client.command()
 async def ping(ctx):
     await ctx.send(f"Pong? Ah ping: {round(client.latency *1000)}ms")
