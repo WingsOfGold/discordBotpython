@@ -1,5 +1,5 @@
 import discord
-#import exports as ex
+from bot import exports as ex
 import random
 from discord.ext import commands
 
@@ -15,11 +15,11 @@ async def on_ready():
                     
 @client.command()
 async def wlcOn(ctx):
-    wlcCategory = True#exports.getChannel(ctx.guild.channels, wlcCategoryName)
+    wlcCategory = True#ex.getChannel(ctx.guild.channels, wlcCategoryName)
     if (wlcCategory):
         await ctx.reply("It's already On!")
     else:
-        #exports.channelCreate("txt", ctx.guild, wlcTextChannelName, _category=wlcCategory, _position=2)
+        #ex.channelCreate("txt", ctx.guild, wlcTextChannelName, _category=wlcCategory, _position=2)
         await ctx.reply("Success amigo")
 
 @client.command()
