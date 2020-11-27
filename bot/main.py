@@ -28,18 +28,7 @@ async def on_ready():
 
 @client.command()
 async def wlcCategoryOn(ctx):
-    svrsCategory = getChannel(ctx.guild.channels, svrsCategoryName)
-    wlcCategory = getChannel(ctx.guild.channels, wlcCategoryName)
-    wlcRules = getChannel(ctx.guild.channels, wlcCategoryName)
-    if (wlcCategory):
-        await ctx.reply("It's already On!")
-    else:
-        num = 0
-        if (svrsCategory):
-            num = 1
-        wlcCategory = await ctx.guild.create_category(wlcTextChannelName, position=num)
-        await ctx.guild.create_text_channel(wlcTextChannelName, category=wlcCategory, position=2)
-        await ctx.reply("Success amigo")
+    ctx.send("TEST")
 """
 @client.command()
 async def wlcCategoryOff(ctx)
@@ -54,7 +43,7 @@ async def wlcCategoryOff(ctx)
 """
 @client.command()
 async def ping(ctx):
-    await ctx.send(f"Pong? Ah ping: {round(client.latency *1000)}ms")
+    await ctx.send(f"Pong? Ah ping: {round(client.latency *1000)}ms aa")
 
 @client.command(aliases=['8ball'])
 async def _8ball(ctx, *, question):
