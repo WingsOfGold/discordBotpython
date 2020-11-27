@@ -29,13 +29,13 @@ async def on_ready():
 async def wlcCtgOn(ctx):        
     svrsCategory = getChannel(ctx.guild.channels, svrsCategoryName) or False
     wlcCategory = getChannel(ctx.guild.channels, wlcCategoryName) or False
-    if (wlcCategory):
-        await ctx.reply("It's already On!")
-    else:
-        num = 0
-        if (svrsCategory):
-            num = 1
-        wlcCategory = await ctx.guild.create_category(wlcTextChannelName, position=num)
+    wlcCategory = await ctx.guild.create_category(wlcTextChannelName, position=num)
+    #if (wlcCategory):
+    #    await ctx.reply("It's already On!")
+    #else:
+        #num = 0
+        #if (svrsCategory):
+        #    num = 1
         await ctx.guild.create_text_channel(wlcRulesName, category=wlcCategory, position=0)
         await ctx.guild.create_text_channel(wlcAnouncementsName, category=wlcCategory, position=1)
         await ctx.reply("Success amigo")
