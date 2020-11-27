@@ -28,16 +28,7 @@ async def on_ready():
 @client.command()
 async def wlcOn(ctx):
     aC = discord.utils.get(ctx.guild.channels, name='____________welcome____________')
-    ctx.send(str(aC.name))
-    aC1 = getChannel(ctx.guild, "Welcome")
-    if (aC and (not aC1)):
-        ctx.send(ac.name)
-        await ctx.guild.create_text_channel('Welcome', category=aC)
-    elif(aC and aC1):
-        ctx.reply("It's already functioning.")
-    else:
-        aC2 = await ctx.guild.create_category('____________welcome____________', position=1)
-        await ctx.guild.create_text_channel('Welcome', category=aC2)
+    ctx.send(f'test {aC.name}')
 
 @client.command()
 async def wlcOff(ctx):
