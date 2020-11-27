@@ -24,7 +24,7 @@ async def wlcOn(ctx):
 
 @client.command()
 async def ping(ctx):
-    await ctx.send(f"Pong? Ah ping: {round(client.latency *1000)}ms test")
+    await ctx.send(f"Pong? Ah ping: {round(client.latency *1000)}ms")
 
 @client.command(aliases=['8ball'])
 async def _8ball(ctx, *, question):
