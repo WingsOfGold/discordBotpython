@@ -5,7 +5,7 @@ from discord.ext import commands
 botToken = "Nzc2NDAxMTQ3OTc1NTY1MzEz.X60V6g.yN4Y4wmj4RR2yGaXsbhSWUlUv7g"
 client = commands.Bot(command_prefix = '*')
 
-async def channel(guild, channelName=None):
+async def channelet():
     return 213
 @client.event
 async def on_ready():
@@ -29,7 +29,7 @@ async def on_ready():
                     
 @client.command()
 async def wlcOn(ctx):
-    await ctx.send(f"Phase 1 is Complete {channel(ctx.guild, "general")}")
+    await ctx.send(channelet())
     #for channel in ctx.guild.channels:
         #await ctx.send(f'{channel.name}')
 
