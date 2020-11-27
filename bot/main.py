@@ -18,7 +18,7 @@ async def on_ready():
 @client.command()
 async def wlcOn(ctx):
     awa = getChannel(ctx.guild.channels, "____________welcome____________")
-    await ctx.send(f'{awa}')
+    await ctx.send(f'{awa.id}')
 
 @client.command()
 async def ping(ctx):
