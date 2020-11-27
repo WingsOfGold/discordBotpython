@@ -3,7 +3,7 @@ import random
 from discord.ext import commands
 
 serverName = "Diamond"
-svrsCategoryName = serverName + "'s Stats"
+svrsCategoryName = serverName + "s Stats"
 svrsTotalName = "All Members: "
 svrsMembersName = "Members: "
 svrsBotsName = "Bots: "
