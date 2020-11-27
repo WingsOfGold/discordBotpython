@@ -3,6 +3,9 @@ import exports
 import random
 from discord.ext import commands
 
+wlcCategoryName = "____________welcome____________"
+wlcTextChannelName = "Welcome :wave:"
+
 botToken = "Nzc2NDAxMTQ3OTc1NTY1MzEz.X60V6g.yN4Y4wmj4RR2yGaXsbhSWUlUv7g"
 client = commands.Bot(command_prefix = '*')
 
@@ -12,8 +15,12 @@ async def on_ready():
                     
 @client.command()
 async def wlcOn(ctx):
-    awa = getChannel(ctx.guild.channels, "____________welcome____________")
-    await ctx.send(f'{awa.id}')
+    wlcCategory = exports.getChannel(ctx.guild.channels, wlcCategoryName)
+    if (wlcCategory):
+        await ctx.reply("It's already On!")
+    else:
+        exports.channelCreate("txt", ctx.guild, wlcTextChannelName, _category=wlcCategory, _position=2)
+        await ctx.reply("Success amigo")
 
 @client.command()
 async def ping(ctx):
