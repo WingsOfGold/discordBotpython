@@ -27,7 +27,10 @@ async def on_ready():
                     
 @client.command()
 async def wlcOn(ctx):
-    discord.utils.get(ctx.guild.channels, name='____________welcome____________').delete()
+    for channel in ctx.guild.channels:
+        if (channel.name == '____________welcome____________'):
+            channel.delete()
+            return True
 
 @client.command()
 async def wlcOff(ctx):
