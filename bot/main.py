@@ -33,8 +33,8 @@ async def on_ready():
 @client.command()
 async def wlcOn(ctx):
     aC = getChannel(ctx.guild, "____________welcome____________")
-    ctx.send(ac.name)
     if (aC):
+        ctx.send(ac.name)
         await ctx.guild.create_text_channel('Welcome', category=aC)
     else:
         aC1 = await ctx.guild.create_category('____________welcome____________', position=1)
