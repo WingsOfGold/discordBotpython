@@ -26,7 +26,7 @@ async def on_ready():
 #    ac = getChannel(ctx.guild, "
                     
 @client.command()
-async def wlcOn(ctx):
+async def wlcaff(ctx):
     ctx.send("Phase 1 is Complete")
 
 @client.command()
