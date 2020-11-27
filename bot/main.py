@@ -42,12 +42,13 @@ async def wlcCategoryOn(ctx):
         await ctx.reply("Success amigo")
 
 @client.command()
-async def wlcCategoryOff()
+async def wlcCategoryOff(ctx)
     wlcCategory = getChannel(ctx.guild.channels, wlcCategoryName)
     if (wlcCategory):
         for channel in wlcCategory.channels:
             channel.delete()
         wlcCategory.delete()
+        ctx.send("Success mon amie")
     else:
         ctx.send("It's already off!")
 
