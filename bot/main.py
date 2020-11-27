@@ -27,7 +27,7 @@ async def wlcOn(ctx):
         await ctx.reply("It's already On!")
     else:
         if (not wlcCategory):
-            wlcChannel = await ctx.guild.create_category(wlcTextChannelName, category=wlcCategory, position=2)
+            wlcCategory = await ctx.guild.create_category(wlcTextChannelName, category=wlcCategory, position=2)
         await ctx.guild.create_voice_channel(wlcTextChannelName, category=wlcCategory, position=2)
         await ctx.reply("Success amigo")
 
