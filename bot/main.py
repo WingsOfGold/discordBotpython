@@ -3,7 +3,7 @@ import random
 from discord.ext import commands
 
 wlcCategoryName = "____________welcome____________"
-wlcChannelName = "Welcome :wave:"
+wlcChannelName = "Welcome"
 
 botToken = "Nzc2NDAxMTQ3OTc1NTY1MzEz.X60V6g.yN4Y4wmj4RR2yGaXsbhSWUlUv7g"
 client = commands.Bot(command_prefix = '*')
@@ -17,15 +17,22 @@ def getChannel(channels, name):
 @client.event
 async def on_ready():
     await client.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name="u snitching"))
-    print("Bot is ready!")
                     
 @client.command()
 async def wlcOn(ctx):
-    await ctx.reply("It's already On!")
+    wlcCategory = getChannel(ctx.guild.channels, wlcCategoryName)
+    wlcChannel = getChannel(ctx.guild.channels, wlcChannelName)
+    if (wlcChannel):
+        await ctx.reply("It's already On!")
+    else:
+        if (not wlcCategory):
+            wlcCategory = await ctx.guild.create_category(wlcTextChannelName, position=1)
+        await ctx.guild.create_voice_channel(wlcTextChannelName, category=wlcCategory, position=2)
+        await ctx.reply("Success amigo")
 
 @client.command()
 async def ping(ctx):
-    await ctx.send(f"Pong? Ah ping: {round(client.latency *1000)}ms")
+    await ctx.send(f"Pong? Ah ping: {round(client.latency *1000)}ms test")
 
 @client.command(aliases=['8ball'])
 async def _8ball(ctx, *, question):
