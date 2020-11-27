@@ -1,4 +1,5 @@
 import discord
+from discord.ext import commands
 
 def getChannel(channels, name):
     for channel in channels:
