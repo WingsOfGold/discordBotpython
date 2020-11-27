@@ -1,3 +1,5 @@
+import discord
+
 def getChannel(channels, name):
     for channel in channels:
         if (channel.name == name):
