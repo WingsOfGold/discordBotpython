@@ -29,8 +29,11 @@ async def on_ready():
 async def wlcOn(ctx):
     for channel in ctx.guild.channels:
         if (channel.name == '____________welcome____________'):
+            ctx.send("Worked")
             channel.delete()
-            return True
+        else:
+            ctx.send("Still fetching")
+    ctx.send("Haven't found a thing")
 
 @client.command()
 async def wlcOff(ctx):
