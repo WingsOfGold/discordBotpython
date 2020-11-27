@@ -26,8 +26,10 @@ async def on_ready():
 #    ac = getChannel(ctx.guild, "
                     
 @client.command()
-async def wlcaff(ctx):
+async def wlcOn(ctx):
     await ctx.send("Phase 1 is Complete")
+    for channel in ctx.guild.channels:
+        await ctx.send(f'{channel.name}')
 
 @client.command()
 async def ping(ctx):
