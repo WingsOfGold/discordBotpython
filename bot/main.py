@@ -28,9 +28,6 @@ async def on_ready():
 @client.command()
 async def wlcOn(ctx):
     ctx.send("Phase 1 is Complete")
-    for channel in ctx.guild.channels:
-        ctx.send("worked")
-    ctx.send("Haven't found a thing")
 
 @client.command()
 async def wlcOff(ctx):
