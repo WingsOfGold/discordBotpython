@@ -47,6 +47,7 @@ async def wlcCategoryOff()
     if (wlcCategory):
         for channel in wlcCategory.channels:
             channel.delete()
+        wlcCategory.delete()
     else:
         ctx.send("It's already off!")
 
