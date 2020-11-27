@@ -9,7 +9,6 @@ svrsMembersName = "Members: "
 svrsBotsName = "Bots: "
 
 wlcCategoryName = "____________welcome____________"
-wlcChannelName = "Welcome"
 wlcRulesName = "Rules"
 wlcAnouncementsName = "Anouncements"
 
@@ -26,11 +25,12 @@ def getChannel(channels, name):
 async def on_ready():
     await client.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name="u snitching"))
 
-@client.command(aliases=['wlcCtgOn'])
-async def wlcCategoryOn(ctx):
-    ctx.send("TEST")
+@client.command()
+async def wlcCtgOn(ctx):
+    await ctx.send("TEST")
 
-    """@client.command(aliases=['wlcCtgOff'])
+    """
+@client.command()
 async def wlcCategoryOff(ctx)
     wlcCategory = getChannel(ctx.guild.channels, wlcCategoryName)
     if (wlcCategory):
