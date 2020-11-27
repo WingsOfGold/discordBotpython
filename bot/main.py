@@ -12,14 +12,20 @@ async def on_ready():
     print("Bot is ready!")
 
 @client.command()
+async def svstats(ctx):
+    
+@client.command()
 async def wlc(ctx):
     global welcomeCategory, welcomeText
-    welcomeCategory = await ctx.guild.create_category('Testing')
+    welcomeCategory = await ctx.guild.create_category('Testing', position=1)
     welcomeText = await ctx.guild.create_text_channel('Welcome', category=welcomeCategory)
+    welcomeCategory = welcomeCategory.id
+    welcomeText = welcomeText.id
+    ctx.send(f"{welcomeCategory}")
 
 @client.command()
 async def ping(ctx):
-    await ctx.send(f"Pong? Ah ping: {round(client.latency *1000)}ms")
+    await ctx.send(f"Pong? Ah ping: {round(client.latency *1000)}ms {welcomeCategory}")
 
 @client.command(aliases=['8ball'])
 async def _8ball(ctx, *, question):
