@@ -1,5 +1,5 @@
 import discord
-import test.py
+from test.py import getChannel
 import random
 from discord.ext import commands
 
