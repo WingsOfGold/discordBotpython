@@ -1,5 +1,5 @@
 import discord
-from bot import exports as ex
+from bot import test as ex
 import random
 from discord.ext import commands
 
