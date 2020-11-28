@@ -42,6 +42,15 @@ async def svsCtgOn(ctx):
         await ctx.guild.create_voice_channel(svsTotalName, category=svsCategory, position=0)
         await ctx.send("Category initiated!")
 
+@client.command()
+async def svsCtgOff(ctx):
+    svsCategory = getChannel(ctx.guild, svsCategoryName)
+    if (svsCategory):
+        await ctx.send("It's not on!")
+    else:
+        for channel in svsCategory.channels:
+            await ctx.send(f"{channel.name}")
+
 @client.command(aliases=['8ball'])
 async def _8ball(ctx, *, question):
     responses = ['It is certain.',
