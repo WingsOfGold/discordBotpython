@@ -11,6 +11,7 @@ async def on_ready():
 
 @client.command()
 async def start(ctx):
-    await ctx.guild.create_category("TEST", position=0)
+    a = await ctx.guild.create_category("TEST", position=0)
+    a.position = 0
 
 client.run(botToken)
