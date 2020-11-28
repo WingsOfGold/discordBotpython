@@ -25,6 +25,7 @@ def getChannel(g, name):
 @client.event
 async def on_ready():
     await client.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name="u snitching"))
+    await client.get_channel(776501520471949337).send("I'm ready!")
 
 @client.command()
 async def ping(ctx):
