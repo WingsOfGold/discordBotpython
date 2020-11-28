@@ -3,7 +3,7 @@ import random
 from discord.ext import commands
 
 serverName = "Diamond"
-svrsCategoryName = serverName + "s Stats"
+svrsCategoryName = serverName + "'s Stats"
 svrsTotalName = "All Members: "
 svrsMembersName = "Members: "
 svrsBotsName = "Bots: "
@@ -32,10 +32,14 @@ async def ping(ctx):
 @client.command()
 async def wlcCtgOn(ctx):
     wlcCategory = getChannel(ctx.guild, wlcCategoryName)
+    svrsCategory = getChannel(ctx.guild, svrsCategoryName)
     if (wlcCategory):
         await ctx.send("It's already on!")
     else:
-        await ctx.send("Category initiated!")
+        num = 0
+        if (svrsCategory):
+            num = 1
+        await ctx.send(f"Category initiated! {num}")
 
 
 @client.command()
