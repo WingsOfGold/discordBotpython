@@ -44,6 +44,7 @@ async def svsCtgOn(ctx):
         await ctx.send("It's already on!")
     else:
         svsCategory = await ctx.guild.create_category(svsCategoryName, position=svsCtgPos)
+        await svsCategory.edit(position=1)
         await ctx.guild.create_voice_channel(svsTotalName, category=svsCategory)
         await ctx.guild.create_voice_channel(svsMembersName, category=svsCategory)
         await ctx.guild.create_voice_channel(svsBotsName, category=svsCategory)
