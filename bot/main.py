@@ -44,7 +44,7 @@ async def svsCtgOn(ctx):
         await ctx.send("It's already on!")
     else:
         svsCategory = await ctx.guild.create_category(svsCategoryName, position=svsCtgPos)
-        await svsCategory.edit(position=1)
+        await svsCategory.edit(position=svsCtgPos)
         await ctx.guild.create_voice_channel(svsTotalName, category=svsCategory)
         await ctx.guild.create_voice_channel(svsMembersName, category=svsCategory)
         await ctx.guild.create_voice_channel(svsBotsName, category=svsCategory)
@@ -86,6 +86,7 @@ async def wlcCtgOn(ctx):
         if (svsCategoryI):
             num += 1
         wlcCategory = await ctx.guild.create_category(wlcCategoryName, position=svsCtgPos)
+        await wlcCategory.edit(position=num)
         await ctx.guild.create_text_channel(wlcRulesName, category=wlcCategory)
         await ctx.guild.create_text_channel(wlcAnouncementsName, category=wlcCategory)
         await ctx.send("Category has been initiated!")
