@@ -39,7 +39,8 @@ async def wlcCtgOn(ctx):
         num = 0
         if (svrsCategory):
             num = 1
-        await ctx.send(f"Category initiated! {num}")
+        wlcCategoryI = await ctx.guild.create_category(wlcCategoryName, position=num)
+        await ctx.send(f"Category initiated! {wlcCategoryI.name}")
 
 
 @client.command()
