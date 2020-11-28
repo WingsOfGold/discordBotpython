@@ -23,6 +23,9 @@ def getChannel(g, name):
             return channel
     return False
 
+def updateSvsStats(g):
+    getChannel(g, svsTotalName).name = svsTotalName + len(get_all_members())
+
 @client.event
 async def on_ready():
     await client.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name="u snitching"))
@@ -55,6 +58,18 @@ async def svsCtgOff(ctx):
         await channel.delete()
     await svsCategory.delete()
     await ctx.send("Category has been obliterated!")
+
+@client.event
+async def on_channel_create(channel):
+    if (channel.name == svsCategoryName or channel.name == svsTotalName):
+        updateSvsStats(channel.guild)
+@client.event
+async def on_member_join(member):
+    updateSvsStats(member.guild)
+
+@client.event
+async def on_member_remove(member):
+    updateSvsStats(member.guild)
 
 # Welcome Category Code:
 @client.command()
