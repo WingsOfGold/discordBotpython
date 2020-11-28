@@ -45,7 +45,7 @@ async def svsCtgOn(ctx):
 @client.command()
 async def svsCtgOff(ctx):
     svsCategory = getChannel(ctx.guild, svsCategoryName)
-    if (svsCategory):
+    if (not svsCategory):
         await ctx.send("It's not on!")
     else:
         for channel in svsCategory.channels:
