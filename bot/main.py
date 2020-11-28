@@ -4,13 +4,11 @@ from discord.ext import commands
 
 serverName = "Diamond"
 
-svsCtgPosition = 0
 svsCategoryName = serverName + "'s Stats"
 svsTotalName = "All Members: "
 svsMembersName = "Members: "
 svsBotsName = "Bots: "
 
-wlcCtgPosition = 1
 wlcCategoryName = "____________welcome____________"
 wlcRulesName = "Rules"
 wlcAnouncementsName = "Anouncements"
@@ -34,12 +32,11 @@ async def ping(ctx):
 
 @client.command()
 async def svsCtgOn(ctx):
-    global svsCtgPosition
     svsCategoryI = getChannel(ctx.guild, svsCategoryName)
     if (svsCategoryI):
         await ctx.send("It's already on!")
     else:
-        svsCategory = await ctx.guild.create_category(svsCategoryName, position=svsCtgPosition)
+        svsCategory = await ctx.guild.create_category(svsCategoryName, position=0)
         await ctx.guild.create_voice_channel(svsTotalName, category=svsCategory)
         await ctx.guild.create_voice_channel(svsMembersName, category=svsCategory)
         await ctx.guild.create_voice_channel(svsBotsName, category=svsCategory)
@@ -47,16 +44,15 @@ async def svsCtgOn(ctx):
     
 @client.command()
 async def wlcCtgOn(ctx):
-    global wlcCtgPosition
     wlcCategoryI = getChannel(ctx.guild, wlcCategoryName)
     svsCategory = getChannel(ctx.guild, svsCategoryName)
     if (wlcCategoryI):
         await ctx.send("It's already on!")
         return True
     else:
-        num = wlcCtgPosition - 1
+        num = 0
         if (svrsCategory):
-            num = wlcCtgPosition
+            num = 1
         wlcCategory = await ctx.guild.create_category(wlcCategoryName, position=num)
         await ctx.create_text_channel(wlcRulesName, category=wlcCategory)
         await ctx.create_text_channel(wlcAnouncementsName, category=wlcCategory)
