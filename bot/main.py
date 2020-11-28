@@ -23,7 +23,7 @@ def getChannel(g, name):
             return channel
     return False
 
-def updateSvsStats(g):
+async def updateSvsStats(g):
     aC = getChannel(g, svsTotalName)
     await aC.edit(name="A")
 
