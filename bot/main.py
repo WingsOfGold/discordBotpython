@@ -31,7 +31,9 @@ async def ping(ctx):
 
 @client.command()
 async def wlcCtgOn(ctx):
-    await ctx.send("test")
+    aChannel = getChannel(ctx.guild.channels, "general")
+    await ctx.send(f"{ctx.name}")
+
 
 @client.command()
 async def wlcCtgOff(ctx):
