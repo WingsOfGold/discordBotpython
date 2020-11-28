@@ -3,13 +3,13 @@ from discord.ext import commands
 
 serverName = "Diamond"
 
-svsCtgPos = 1
+svsCtgPos = 0
 svsCategoryName = serverName + "'s Stats"
 svsTotalName = "All Members: "
 svsMembersName = "Members: "
 svsBotsName = "Bots: "
 
-wlcCtgPos = 2
+wlcCtgPos = 1
 wlcCategoryName = "____________welcome____________"
 wlcRulesName = "Rules"
 wlcAnouncementsName = "Anouncements"
