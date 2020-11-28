@@ -31,8 +31,11 @@ async def ping(ctx):
 
 @client.command()
 async def wlcCtgOn(ctx):
-    aChannel = getChannel(ctx.guild, "general")
-    await ctx.send(f"{aChannel.name}")
+    wlcCategory = getChannel(ctx.guild, wlcCategoryName)
+    if (wlcCategory):
+        await ctx.send("It's already on!")
+    else:
+        await ctx.send("Category initiated!")
 
 
 @client.command()
