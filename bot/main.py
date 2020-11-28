@@ -49,7 +49,8 @@ async def svsCtgOff(ctx):
         await ctx.send("It's not on!")
     else:
         for channel in svsCategory.channels:
-            await ctx.send(f"{channel.name}")
+            channel.delete()
+        svsCategory.delete()
 
 @client.command(aliases=['8ball'])
 async def _8ball(ctx, *, question):
