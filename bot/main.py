@@ -12,7 +12,7 @@ svsBotsName = "Bots: "
 
 wlcCtgPos = 1
 wlcCategoryName = "____________welcome____________"
-wlcRulesName = "Rules"
+wlcRulesName = "Rules:wave:"
 wlcAnouncementsName = "Anouncements"
 
 botToken = "Nzc2NDAxMTQ3OTc1NTY1MzEz.X60V6g.yN4Y4wmj4RR2yGaXsbhSWUlUv7g"
@@ -41,9 +41,9 @@ async def svsCtgOn(ctx):
         await ctx.send("It's already on!")
     else:
         svsCategory = await ctx.guild.create_category(svsCategoryName, position=svsCtgPos)
-        await ctx.guild.create_voice_channel(svsBotsName, category=svsCategory)
-        await ctx.guild.create_voice_channel(svsMembersName, category=svsCategory)
         await ctx.guild.create_voice_channel(svsTotalName, category=svsCategory)
+        await ctx.guild.create_voice_channel(svsMembersName, category=svsCategory)
+        await ctx.guild.create_voice_channel(svsBotsName, category=svsCategory)
         await ctx.send("Category has been initiated!")
 
 @client.command()
@@ -68,7 +68,7 @@ async def wlcCtgOn(ctx):
         num = wlcCtgPos - 1
         if (svsCategoryI):
             num += 1
-        wlcCategory = await ctx.guild.create_category(svsCategoryName, position=svsCtgPos)
+        wlcCategory = await ctx.guild.create_category(wlcCategoryName, position=svsCtgPos)
         await ctx.guild.create_text_channel(wlcRulesName, category=wlcCategory)
         await ctx.guild.create_text_channel(wlcAnouncementsName, category=wlcCategory)
         await ctx.send("Category has been initiated!")
