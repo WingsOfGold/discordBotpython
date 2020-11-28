@@ -23,9 +23,9 @@ def getChannel(g, name):
             return channel
     return False
 
-#async def updateSvsStats(g):
-    #aC = getChannel(g, svsTotalName)
-    #await aC.edit(name="A")
+async def updateSvsStats(g):
+    aC = getChannel(g, svsTotalName)
+    await aC.edit(name="A")
 
 @client.event
 async def on_ready():
