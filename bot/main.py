@@ -3,13 +3,13 @@ from discord.ext import commands
 
 serverName = "Diamond"
 
-svsCtgPos = 0
+svsCtgPos = 1
 svsCategoryName = serverName + "'s Stats"
 svsTotalName = "All Members: "
 svsMembersName = "Members: "
 svsBotsName = "Bots: "
 
-wlcCtgPos = 1
+wlcCtgPos = 2
 wlcCategoryName = "____________welcome____________"
 wlcRulesName = "Rules"
 wlcAnouncementsName = "Anouncements"
@@ -23,9 +23,9 @@ def getChannel(g, name):
             return channel
     return False
 
-async def updateSvsStats(g):
-    aC = getChannel(g, svsTotalName)
-    await aC.edit(name="A")
+#async def updateSvsStats(g):
+   # aC = getChannel(g, svsTotalName)
+    #await aC.edit(name="A")
 
 @client.event
 async def on_ready():
