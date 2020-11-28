@@ -3,11 +3,14 @@ import random
 from discord.ext import commands
 
 serverName = "Diamond"
-svrsCategoryName = serverName + "'s Stats"
-svrsTotalName = "All Members: "
-svrsMembersName = "Members: "
-svrsBotsName = "Bots: "
 
+svsCtgPosition = 0
+svsCategoryName = serverName + "'s Stats"
+svsTotalName = "All Members: "
+svsMembersName = "Members: "
+svsBotsName = "Bots: "
+
+wlcCtgPosition = 1
 wlcCategoryName = "____________welcome____________"
 wlcRulesName = "Rules"
 wlcAnouncementsName = "Anouncements"
@@ -30,22 +33,43 @@ async def ping(ctx):
     await ctx.send(f"Pong? Ah ping: {round(client.latency *1000)}ms aa")
 
 @client.command()
-async def wlcCtgOn(ctx):
-    wlcCategory = getChannel(ctx.guild, wlcCategoryName)
-    svrsCategory = getChannel(ctx.guild, svrsCategoryName)
-    if (wlcCategory):
+async def svsCtgOn(ctx):
+    svsCategoryI = getChannel(ctx.guild, svsCategoryName)
+    if (svsCategoryI):
         await ctx.send("It's already on!")
     else:
-        num = 0
-        if (svrsCategory):
-            num = 1
-        wlcCategoryI = await ctx.guild.create_category(wlcCategoryName, position=num)
-        await ctx.send(f"Category initiated! {wlcCategoryI.name}")
-
-
+        svsCategory = await ctx.guild.create_category(svsCategoryName, position=svsCtgPosition)
+        await ctx.guild.create_voice_channel(svsTotalName, category=svsCategory)
+        await ctx.guild.create_voice_channel(svsMembersName, category=svsCategory)
+        await ctx.guild.create_voice_channel(svsBotsName, category=svsCategory)
+        await ctx.send("Category initiated!")
+    
 @client.command()
-async def wlcCtgOff(ctx):
-    await ctx.send("Working")
+async def wlcCtgOn(ctx):
+    wlcCategoryI = getChannel(ctx.guild, wlcCategoryName)
+    svsCategory = getChannel(ctx.guild, svsCategoryName)
+    if (wlcCategoryI):
+        await ctx.send("It's already on!")
+        return True
+    else:
+        num = wlcCtgPosition - 1
+        if (svrsCategory):
+            num = wlcCtgPosition
+        wlcCategory = await ctx.guild.create_category(wlcCategoryName, position=num)
+        await ctx.create_text_channel(wlcRulesName, category=wlcCategory)
+        await ctx.create_text_channel(wlcAnouncementsName, category=wlcCategory)
+        await ctx.send("Category initiated!")
+
+#@client.command()
+#async def wlcCtgOff(ctx):
+#    wlcCategoryI = getChannel(ctx.guild, wlcCategoryName)
+#    if (not wlcCategoryI):
+#        await ctx.send("It's not on!")
+#        return True
+#    for channel in wlcCategoryI.channels:
+#        channel.delete()
+#    wlcCategoryI.delete()
+#    await ctx.send("Category obliterated!")
 
 @client.command(aliases=['8ball'])
 async def _8ball(ctx, *, question):
