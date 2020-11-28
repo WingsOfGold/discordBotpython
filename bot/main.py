@@ -71,7 +71,7 @@ async def on_member_join(member):
 
 @client.event
 async def on_member_remove(member):
-    updateSvsStats(member.guild)
+   return True# updateSvsStats(member.guild)
 
 # Welcome Category Code:
 @client.command()
