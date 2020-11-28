@@ -28,7 +28,7 @@ async def on_ready():
 
 @client.command()
 async def ping(ctx):
-    await ctx.send(f"Pong? Ah ping: {round(client.latency *1000)}ms aa")
+    await ctx.send(f"Pong? Ah ping: {round(client.latency *1000)}ms")
 
 @client.command()
 async def svsCtgOn(ctx):
