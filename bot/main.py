@@ -64,8 +64,8 @@ async def svsCtgOff(ctx):
 @client.event
 async def on_channel_create(channel):
     if (channel.name == svsCategoryName or channel.name == svsTotalName):
-        channel.send("TEST")
-        #updateSvsStats(channel.guild)
+        await client.get_channel(776501520471949337).send("I'm ready!")
+        #updateSvsStats(channel)
 
 #@client.event
 #async def on_member_join(member):
