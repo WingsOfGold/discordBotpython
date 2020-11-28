@@ -4,11 +4,13 @@ from discord.ext import commands
 
 serverName = "Diamond"
 
+svsCtgPos = 0
 svsCategoryName = serverName + "'s Stats"
 svsTotalName = "All Members: "
 svsMembersName = "Members: "
 svsBotsName = "Bots: "
 
+wlcCtgPos = 1
 wlcCategoryName = "____________welcome____________"
 wlcRulesName = "Rules"
 wlcAnouncementsName = "Anouncements"
@@ -38,11 +40,11 @@ async def svsCtgOn(ctx):
     if (svsCategoryI):
         await ctx.send("It's already on!")
     else:
-        svsCategory = await ctx.guild.create_category(svsCategoryName, position=0)
-        await ctx.guild.create_voice_channel(svsBotsName, category=svsCategory, position=0)
-        await ctx.guild.create_voice_channel(svsMembersName, category=svsCategory, position=0)
-        await ctx.guild.create_voice_channel(svsTotalName, category=svsCategory, position=0)
-        await ctx.send("Category initiated!")
+        svsCategory = await ctx.guild.create_category(svsCategoryName, position=svsCtgPos)
+        await ctx.guild.create_voice_channel(svsBotsName, category=svsCategory)
+        await ctx.guild.create_voice_channel(svsMembersName, category=svsCategory)
+        await ctx.guild.create_voice_channel(svsTotalName, category=svsCategory)
+        await ctx.send("Category has been initiated!")
 
 @client.command()
 async def svsCtgOff(ctx):
@@ -56,6 +58,21 @@ async def svsCtgOff(ctx):
     await ctx.send("Category has been obliterated!")
 
 # Welcome Category Code:
+@client.command()
+async def wlcCtgOn(ctx):
+    wlcCategoryI = getChannel(ctx.guild, wlcCategoryName)
+    svsCategoryI = getChannel(ctx.guild, svsCategoryName)
+    if (wlcCategoryI):
+        await ctx.send("It's already on!")
+    else:
+        num = wlcCtgPos - 1
+        if (svsCategoryI):
+            num += 1
+        wlcCategory = await ctx.guild.create_category(svsCategoryName, position=svsCtgPos)
+        await ctx.guild.create_text_channel(wlcRulesName, category=wlcCategory)
+        await ctx.guild.create_text_channel(wlcAnouncementsName, category=wlcCategory)
+        await ctx.send("Category has been initiated!")
+
 @client.command()
 async def wlcCtgOff(ctx):
     wlcCategoryI = getChannel(ctx.guild, wlcCategoryName)
