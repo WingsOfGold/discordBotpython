@@ -30,6 +30,7 @@ async def on_ready():
 async def ping(ctx):
     await ctx.send(f"Pong? Ah ping: {round(client.latency *1000)}ms")
 
+# Server Stats Code:
 @client.command()
 async def svsCtgOn(ctx):
     svsCategoryI = getChannel(ctx.guild, svsCategoryName)
@@ -51,6 +52,18 @@ async def svsCtgOff(ctx):
         for channel in svsCategory.channels:
             await channel.delete()
         await svsCategory.delete()
+        await ctx.send("Category has been obliterated!")
+
+# Welcome Category Code:
+@client.command()
+async def wlcCtgOff(ctx):
+    wlcCategoryI = getChannel(ctx.guild, wlcCategoryName)
+    if (not wlcCategoryI):
+        await ctx.send("It's not on!")
+    else:
+        for channel in wlcCategoryI.channels:
+            channel.delete()
+        wlcCategoryI.delete()
         await ctx.send("Category has been obliterated!")
 
 @client.command(aliases=['8ball'])
