@@ -12,7 +12,7 @@ svsBotsName = "Bots: "
 
 wlcCtgPos = 1
 wlcCategoryName = "____________welcome____________"
-wlcRulesName = "Rules:wave:"
+wlcRulesName = "Rules"
 wlcAnouncementsName = "Anouncements"
 
 botToken = "Nzc2NDAxMTQ3OTc1NTY1MzEz.X60V6g.yN4Y4wmj4RR2yGaXsbhSWUlUv7g"
