@@ -63,8 +63,8 @@ async def wlcCtgOff(ctx):
     else:
         for channel in wlcCategoryI.channels:
             channel.delete()
-        wlcCategoryI.delete()
-        await ctx.send("Category has been obliterated!")
+    wlcCategoryI.delete()
+    await ctx.send("Category has been obliterated!")
 
 @client.command(aliases=['8ball'])
 async def _8ball(ctx, *, question):
