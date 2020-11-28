@@ -24,7 +24,10 @@ def getChannel(g, name):
     return False
 
 def updateSvsStats(g):
-    getChannel(g, svsTotalName).name = svsTotalName + len(get_all_members())
+    num = 0
+    for member in g.members:
+        num += 1
+    getChannel(g, svsTotalName).name = svsTotalName + num)
 
 @client.event
 async def on_ready():
