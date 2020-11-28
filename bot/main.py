@@ -23,8 +23,8 @@ def getChannel(g, name):
             return channel
     return False
 
-def updateSvsStats(g):
-    await getChannel(g, svsTotalName).name = svsTotalName + len(g.members)
+#def updateSvsStats(g):
+#    await getChannel(g, svsTotalName).name = svsTotalName + len(g.members)
 
 @client.event
 async def on_ready():
@@ -62,7 +62,7 @@ async def svsCtgOff(ctx):
 @client.event
 async def on_channel_create(channel):
     if (channel.name == svsCategoryName or channel.name == svsTotalName):
-        updateSvsStats(channel.guild)
+        return True#updateSvsStats(channel.guild)
 @client.event
 async def on_member_join(member):
     updateSvsStats(member.guild)
