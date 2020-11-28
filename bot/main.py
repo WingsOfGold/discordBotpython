@@ -24,9 +24,18 @@ def getChannel(channels, name):
 @client.event
 async def on_ready():
     await client.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name="u snitching"))
+
 @client.command()
 async def ping(ctx):
     await ctx.send(f"Pong? Ah ping: {round(client.latency *1000)}ms aa")
+
+@client.command()
+async def wlcCtgOn(ctx):
+    await ctx.send("test")
+
+@client.command()
+async def wlcCtgOff(ctx):
+    await ctx.send("Working")
 
 @client.command(aliases=['8ball'])
 async def _8ball(ctx, *, question):
