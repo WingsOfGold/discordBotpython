@@ -34,6 +34,7 @@ async def ping(ctx):
 
 @client.command()
 async def svsCtgOn(ctx):
+    global svsCtgPosition
     svsCategoryI = getChannel(ctx.guild, svsCategoryName)
     if (svsCategoryI):
         await ctx.send("It's already on!")
@@ -46,6 +47,7 @@ async def svsCtgOn(ctx):
     
 @client.command()
 async def wlcCtgOn(ctx):
+    global wlcCtgPosition
     wlcCategoryI = getChannel(ctx.guild, wlcCategoryName)
     svsCategory = getChannel(ctx.guild, svsCategoryName)
     if (wlcCategoryI):
@@ -59,17 +61,6 @@ async def wlcCtgOn(ctx):
         await ctx.create_text_channel(wlcRulesName, category=wlcCategory)
         await ctx.create_text_channel(wlcAnouncementsName, category=wlcCategory)
         await ctx.send("Category initiated!")
-
-#@client.command()
-#async def wlcCtgOff(ctx):
-#    wlcCategoryI = getChannel(ctx.guild, wlcCategoryName)
-#    if (not wlcCategoryI):
-#        await ctx.send("It's not on!")
-#        return True
-#    for channel in wlcCategoryI.channels:
-#        channel.delete()
-#    wlcCategoryI.delete()
-#    await ctx.send("Category obliterated!")
 
 @client.command(aliases=['8ball'])
 async def _8ball(ctx, *, question):
