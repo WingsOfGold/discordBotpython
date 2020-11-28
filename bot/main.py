@@ -41,22 +41,6 @@ async def svsCtgOn(ctx):
         await ctx.guild.create_voice_channel(svsMembersName, category=svsCategory)
         await ctx.guild.create_voice_channel(svsBotsName, category=svsCategory)
         await ctx.send("Category initiated!")
-    
-@client.command()
-async def wlcCtgOn(ctx):
-    wlcCategoryI = getChannel(ctx.guild, wlcCategoryName)
-    svsCategory = getChannel(ctx.guild, svsCategoryName)
-    if (wlcCategoryI):
-        await ctx.send("It's already on!")
-        return True
-    else:
-        num = 0
-        if (svrsCategory):
-            num = 1
-        wlcCategory = await ctx.guild.create_category(wlcCategoryName, position=num)
-        await ctx.create_text_channel(wlcRulesName, category=wlcCategory)
-        await ctx.create_text_channel(wlcAnouncementsName, category=wlcCategory)
-        await ctx.send("Category initiated!")
 
 @client.command(aliases=['8ball'])
 async def _8ball(ctx, *, question):
