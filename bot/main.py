@@ -27,7 +27,7 @@ def updateSvsStats(g):
     num = 0
     for member in g.members:
         num += 1
-    getChannel(g, svsTotalName).name = svsTotalName + num)
+    getChannel(g, svsTotalName).name = svsTotalName + num
 
 @client.event
 async def on_ready():
