@@ -15,8 +15,8 @@ wlcAnouncementsName = "Anouncements"
 botToken = "Nzc2NDAxMTQ3OTc1NTY1MzEz.X60V6g.yN4Y4wmj4RR2yGaXsbhSWUlUv7g"
 client = commands.Bot(command_prefix = '*')
 
-def getChannel(channels, name):
-    for channel in channels:
+def getChannel(g, name):
+    for channel in g.channels:
         if (channel.name == name):
             return channel
     return False
@@ -31,7 +31,7 @@ async def ping(ctx):
 
 @client.command()
 async def wlcCtgOn(ctx):
-    aChannel = getChannel(ctx.guild.channels, "general")
+    aChannel = getChannel(ctx.guild, "general")
     await ctx.send(f"{aChannel.name}")
 
 
