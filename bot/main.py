@@ -48,11 +48,11 @@ async def svsCtgOff(ctx):
     svsCategory = getChannel(ctx.guild, svsCategoryName)
     if (not svsCategory):
         await ctx.send("It's not on!")
-    else:
-        for channel in svsCategory.channels:
-            await channel.delete()
-        await svsCategory.delete()
-        await ctx.send("Category has been obliterated!")
+        return True
+    for channel in svsCategory.channels:
+        await channel.delete()
+    await svsCategory.delete()
+    await ctx.send("Category has been obliterated!")
 
 # Welcome Category Code:
 @client.command()
@@ -60,10 +60,10 @@ async def wlcCtgOff(ctx):
     wlcCategoryI = getChannel(ctx.guild, wlcCategoryName)
     if (not wlcCategoryI):
         await ctx.send("It's not on!")
-    else:
-        for channel in wlcCategoryI.channels:
-            channel.delete()
-    wlcCategoryI.delete()
+        return True
+    for channel in wlcCategoryI.channels:
+        await channel.delete()
+    await wlcCategoryI.delete()
     await ctx.send("Category has been obliterated!")
 
 @client.command(aliases=['8ball'])
