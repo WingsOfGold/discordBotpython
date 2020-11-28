@@ -24,7 +24,7 @@ def getChannel(g, name):
     return False
 
 #async def updateSvsStats(g):
-   # aC = getChannel(g, svsTotalName)
+    #aC = getChannel(g, svsTotalName)
     #await aC.edit(name="A")
 
 @client.event
@@ -64,15 +64,16 @@ async def svsCtgOff(ctx):
 @client.event
 async def on_channel_create(channel):
     if (channel.name == svsCategoryName or channel.name == svsTotalName):
-        updateSvsStats(channel.guild)
+        channel.send("TEST")
+        #updateSvsStats(channel.guild)
 
-@client.event
-async def on_member_join(member):
-    updateSvsStats(member.guild)
+#@client.event
+#async def on_member_join(member):
+    #updateSvsStats(member.guild)
 
-@client.event
-async def on_member_remove(member):
-   return True# updateSvsStats(member.guild)
+#@client.event
+#async def on_member_remove(member):
+    #updateSvsStats(member.guild)
 
 # Welcome Category Code:
 @client.command()
