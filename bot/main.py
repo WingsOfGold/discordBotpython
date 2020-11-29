@@ -18,9 +18,9 @@ botToken = "Nzc2NDAxMTQ3OTc1NTY1MzEz.X60V6g.yN4Y4wmj4RR2yGaXsbhSWUlUv7g"
 client = commands.Bot(command_prefix = '*')
 
 def getChannel(g, name):
-    for channel in g.channels:
-        if (channel.name == name):
-            return channel
+    for c in g.channels:
+        if (c.name == c.find(name)):
+            return c
     return False
 
 async def updateSvsStats(g):
