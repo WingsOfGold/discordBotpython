@@ -21,13 +21,13 @@ def getChannel(g, name):
     for c in g.channels:
         n = c.name
         if (n.find(name)):
-            await client.get_channel(782480148011679844).send(f"'{c.name}' and '{name}'")
+            await client.get_channel(782480148011679844).send(f"({c.name}) and ({name})")
             return c
     return False
 
 async def updateSvsStats(g):
     await client.get_channel(782480148011679844).send("REached updateSVsStats")
-    await getChannel(g, svsTotalName).edit(name=svsTotalName + str(len(g.members)))
+    #await getChannel(g, svsTotalName).edit(name=svsTotalName + str(len(g.members)))
 
 @client.event
 async def on_ready():
