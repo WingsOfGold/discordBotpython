@@ -1,7 +1,7 @@
 import random
 import discord
 from discord.ext import commands
-#from discord.utils import get
+from discord.utils import get
 
 serverName = "Diamond"
 
@@ -21,9 +21,9 @@ client = commands.Bot(command_prefix = '*')
 
 def getChannel(g, name):
     for c in g.channels:
-        n = c.name
-        if (n.find(name)):
-            await client.get_channel(782480148011679844).send(f"({c.name}) and ({name})")
+        #n = c.name
+        #if (n.find(name)):
+            #await client.get_channel(782480148011679844).send(f"({c.name}) and ({name})")
             return c
     return False
 
@@ -47,15 +47,15 @@ async def svsCtgOn(ctx):
     if (svsCategoryI):
         await ctx.send("It's already on!")
     else:
-        #every1 = get(ctx.guild.roles, name="@everyone")
-        #overwrites = {
-        #    every1: discord.PermissionOverwrite(connect=False)
-        #}
+        every1 = get(ctx.guild.roles, name="@everyone")
+        overwrites = {
+            every1: discord.PermissionOverwrite(connect=False)
+        }
         svsCategory = await ctx.guild.create_category(svsCategoryName, position=svsCtgPos)
         await svsCategory.edit(position=svsCtgPos)
-        await ctx.guild.create_voice_channel(svsTotalName, category=svsCategory)#, overwrites=overwrites)
-        await ctx.guild.create_voice_channel(svsMembersName, category=svsCategory)#, overwrites=overwrites)
-        await ctx.guild.create_voice_channel(svsBotsName, category=svsCategor)#, overwrites=overwrites)
+        await ctx.guild.create_voice_channel(svsTotalName, category=svsCategory, overwrites=overwrites)
+        await ctx.guild.create_voice_channel(svsMembersName, category=svsCategory, overwrites=overwrites)
+        await ctx.guild.create_voice_channel(svsBotsName, category=svsCategor, overwrites=overwrites)
         await ctx.send("Category has been initiated!")
 
 @client.command()
