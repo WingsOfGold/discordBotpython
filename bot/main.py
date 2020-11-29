@@ -28,10 +28,10 @@ def getChannel(g, name):
     return False
 
 async def updateSvsStats(g):
-    allMem = 0
-    for member in g.members:
-        allMem += 1
-    await getChannel(g, svsTotalName).edit(name=svsTotalName + str(allMem))
+    #allMem = 0
+    #for member in g.members:
+       # allMem += 1
+    await getChannel(g, svsTotalName).edit(name=svsTotalName )#+ str(allMem))
 
 @client.event
 async def on_ready():
