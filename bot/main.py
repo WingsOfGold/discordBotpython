@@ -21,7 +21,7 @@ client = commands.Bot(command_prefix = '*')
 
 def getChannel(g, name):
     for c in g.channels:
-        n = str(c.name)
+        n = c.name
         if (n.find(name)):
             #await client.get_channel(782480148011679844).send(f"({c.name}) and ({name})")
             return c
