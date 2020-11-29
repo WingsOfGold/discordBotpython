@@ -29,7 +29,7 @@ def getChannel(g, name):
 
 async def updateSvsStats(g):
     allMem = 0
-    for member in ctx.guild.members:
+    for member in g.members:
         allMem += 1
     await getChannel(g, svsTotalName).edit(name=svsTotalName + str(allMem))
 
