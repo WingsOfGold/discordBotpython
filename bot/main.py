@@ -26,7 +26,7 @@ def getChannel(g, name):
     return False
 
 async def updateSvsStats(g):
-    await getChannel(g, svsTotalName).edit(name=svsTotalName + str(len(g.fetch_members(limit=None))))
+    await getChannel(g, svsTotalName).edit(name=svsTotalName + str(len(client.get_all_members())))
 
 @client.event
 async def on_ready():
