@@ -62,7 +62,7 @@ async def svsCtgOff(ctx):
     await ctx.send("Category has been obliterated!")
 
 @client.event
-async def on_channel_create(channel):
+async def on_guild_channel_create(channel):
     await client.get_channel(776501520471949337).send("I'm ready!")
     #if (channel.name == svsCategoryName or channel.name == svsTotalName):
         #await client.get_channel(776501520471949337).send("I'm ready!")
