@@ -107,7 +107,9 @@ async def wlcCtgOn(ctx):
                 attach_files = False,
                 embed_links = False,
                 manage_messages = False,
-                manage_channels = False
+                manage_channels = False,
+                add_reactions = True,
+                create_instant_invite = True,
             )
         }
         wlcCategory = await ctx.guild.create_category(wlcCategoryName, position=svsCtgPos)
