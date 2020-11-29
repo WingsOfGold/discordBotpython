@@ -25,7 +25,7 @@ def getChannel(g, name):
 
 async def updateSvsStats(g):
     aC = getChannel(g, svsTotalName)
-    await aC.edit(name="A")
+    await aC.edit(name=svsTotalName + "3")
 
 @client.event
 async def on_ready():
@@ -34,7 +34,7 @@ async def on_ready():
 
 @client.command()
 async def ping(ctx):
-    await ctx.send(f"Pong? Ah ping: {round(client.latency *1000)}ms")
+    await ctx.send(f"Pong? Ah! Ping: {round(client.latency *1000)}ms")
 
 # Server Stats Code:
 @client.command()
@@ -63,8 +63,9 @@ async def svsCtgOff(ctx):
 
 @client.event
 async def on_channel_create(channel):
-    if (channel.name == svsCategoryName or channel.name == svsTotalName):
-        await client.get_channel(776501520471949337).send("I'm ready!")
+    await client.get_channel(776501520471949337).send("I'm ready!")
+    #if (channel.name == svsCategoryName or channel.name == svsTotalName):
+        #await client.get_channel(776501520471949337).send("I'm ready!")
         #updateSvsStats(channel)
 
 #@client.event
