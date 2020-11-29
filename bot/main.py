@@ -7,9 +7,9 @@ serverName = "Diamond"
 
 svsCtgPos = 0
 svsCategoryName = serverName + "'s Stats"
-svsTotalName = "All Members: "
-svsMembersName = "Members: "
-svsBotsName = "Bots: "
+svsTotalName = "All Members:"
+svsMembersName = "Members:"
+svsBotsName = "Bots:"
 
 wlcCtgPos = 1
 wlcCategoryName = "____________welcome____________"
@@ -27,7 +27,7 @@ def getChannel(g, name):
 
 async def updateSvsStats(g):
     await client.get_channel(782480148011679844).send("REached updateSVsStats")
-    #await getChannel(g, svsTotalName).edit(name=svsTotalName + str(len(g.members)))
+    #await getChannel(g, svsTotalName).edit(name=svsTotalName +" "+ str(len(g.members)))
 
 @client.event
 async def on_ready():
