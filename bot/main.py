@@ -21,8 +21,7 @@ client = commands.Bot(command_prefix = '*')
 
 def getChannel(g, name):
     for c in g.channels:
-        n = c.name
-        if (n.find(name)):
+        if (c.name.find(name) > -1):
             return c
     return False
 
