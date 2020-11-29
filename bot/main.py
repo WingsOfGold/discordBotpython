@@ -24,6 +24,7 @@ def getChannel(g, name):
     return False
 
 async def updateSvsStats(g):
+    await client.get_channel(776501520471949337).send("REached updateSVsStats")
     aC = getChannel(g, svsTotalName)
     await aC.edit(name=svsTotalName + str(len(g.members)))
 
