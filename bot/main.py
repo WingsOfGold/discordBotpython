@@ -17,8 +17,9 @@ wlcRulesName = "Rules"
 wlcAnouncementsName = "Anouncements"
 
 botToken = "Nzc2NDAxMTQ3OTc1NTY1MzEz.X60V6g.yN4Y4wmj4RR2yGaXsbhSWUlUv7g"
+
 intents = discord.Intents().all()
-client = commands.Bot(command_prefix = '*', intents=intents)
+client = discord.Bot(prefix = '*', intents=intents)
 
 def getChannel(g, name):
     for c in g.channels:
@@ -30,7 +31,7 @@ async def updateSvsStats(g):
     allMem = 0
     for member in ctx.guild.members:
         allMem += 1
-    await getChannel(g, svsTotalName).edit(name=svsTotalName + allMem)
+    await getChannel(g, svsTotalName).edit(name=svsTotalName + str(allMem))
 
 @client.event
 async def on_ready():
