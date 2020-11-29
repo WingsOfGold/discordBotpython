@@ -17,7 +17,8 @@ wlcRulesName = "Rules"
 wlcAnouncementsName = "Anouncements"
 
 botToken = "Nzc2NDAxMTQ3OTc1NTY1MzEz.X60V6g.yN4Y4wmj4RR2yGaXsbhSWUlUv7g"
-client = commands.Bot(command_prefix = '*')
+intents = discord.Intents().all()
+client = commands.Bot(command_prefix = '*', intents=intents)
 
 def getChannel(g, name):
     for c in g.channels:
@@ -26,7 +27,10 @@ def getChannel(g, name):
     return False
 
 async def updateSvsStats(g):
-    await getChannel(g, svsTotalName).edit(name=svsTotalName + "4")
+    allMem = 0
+    for member in ctx.guild.members:
+        allMem += 1
+    await getChannel(g, svsTotalName).edit(name=svsTotalName + allMem)
 
 @client.event
 async def on_ready():
@@ -35,8 +39,6 @@ async def on_ready():
 
 @client.command()
 async def ping(ctx):
-    for member in ctx.guild.members:
-        await ctx.send(member.name)
     await ctx.send(f"Pong? Ah! Ping: {round(client.latency *1000)}ms")
 
 # Server Stats Code:
