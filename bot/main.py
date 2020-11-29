@@ -94,13 +94,9 @@ async def wlcCtgOn(ctx):
         overwrites = {
             every1: discord.PermissionOverwrite(read_messages=True),
             every1: discord.PermissionOverwrite(send_messages=False),
-            every1: discord.PermissionOverwrite(send_tts_messages=False),
-            every1: discord.PermissionOverwrite(manage_messages=False),
             every1: discord.PermissionOverwrite(embed_links=False),
             every1: discord.PermissionOverwrite(attach_files=False),
             every1: discord.PermissionOverwrite(read_message_history=True),
-            every1: discord.PermissionOverwrite(mention_everyone=False),
-            every1: discord.PermissionOverwrite(external_emojis=False),
             every1: discord.PermissionOverwrite(add_reactions=True)
         }
         wlcCategory = await ctx.guild.create_category(wlcCategoryName, position=svsCtgPos)
