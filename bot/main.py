@@ -90,10 +90,23 @@ async def wlcCtgOn(ctx):
         num = wlcCtgPos - 1
         if (svsCategoryI):
             num += 1
+        every1 = get(ctx.guild.roles, name="@everyone")
+        overwrites = {
+            every1: discord.PermissionOverwrite(read_messages=True),
+            every1: discord.PermissionOverwrite(send_messages=False),
+            every1: discord.PermissionOverwrite(send_tts_messages=False),
+            every1: discord.PermissionOverwrite(manage_messages=False),
+            every1: discord.PermissionOverwrite(embed_links=False),
+            every1: discord.PermissionOverwrite(attach_files=False),
+            every1: discord.PermissionOverwrite(read_message_history=True),
+            every1: discord.PermissionOverwrite(mention_everyone=False),
+            every1: discord.PermissionOverwrite(external_emojis=False),
+            every1: discord.PermissionOverwrite(add_reactions=True)
+        }
         wlcCategory = await ctx.guild.create_category(wlcCategoryName, position=svsCtgPos)
         await wlcCategory.edit(position=num)
-        await ctx.guild.create_text_channel(wlcRulesName, category=wlcCategory)
-        await ctx.guild.create_text_channel(wlcAnouncementsName, category=wlcCategory)
+        await ctx.guild.create_text_channel(wlcRulesName, category=wlcCategory, overwrites=overwrites)
+        await ctx.guild.create_text_channel(wlcAnouncementsName, category=wlcCategory, overwrites=overwrites)
         await ctx.send("Category has been initiated!")
 
 @client.command()
