@@ -28,7 +28,7 @@ def getChannel(g, name):
 async def updateSvsStats(g):
     for m in g.members:
         await ctx.send(m.name)
-    await getChannel(g, svsTotalName).edit(name=svsTotalName +)
+    await getChannel(g, svsTotalName).edit(name=svsTotalName + 1)
 
 @client.event
 async def on_ready():
