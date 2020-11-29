@@ -112,10 +112,10 @@ async def wlcCtgOn(ctx):
                 create_instant_invite = True,
             )
         }
-        wlcCategory = await ctx.guild.create_category(wlcCategoryName, position=svsCtgPos)
+        wlcCategory = await ctx.guild.create_category(wlcCategoryName, position=svsCtgPos, overwrites=overwrites)
         await wlcCategory.edit(position=num)
-        await ctx.guild.create_text_channel(wlcRulesName, category=wlcCategory, overwrites=overwrites)
-        await ctx.guild.create_text_channel(wlcAnouncementsName, category=wlcCategory, overwrites=overwrites)
+        await ctx.guild.create_text_channel(wlcRulesName, category=wlcCategory)
+        await ctx.guild.create_text_channel(wlcAnouncementsName, category=wlcCategory)
         await ctx.send("Category has been initiated!")
 
 @client.command()
