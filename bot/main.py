@@ -53,9 +53,9 @@ async def svsCtgOn(ctx):
         #}
         svsCategory = await ctx.guild.create_category(svsCategoryName, position=svsCtgPos)
         await svsCategory.edit(position=svsCtgPos)
-        await ctx.guild.create_voice_channel(svsTotalName, category=svsCategory#), overwrites=overwrites)
-        await ctx.guild.create_voice_channel(svsMembersName, category=svsCategory#), overwrites=overwrites)
-        await ctx.guild.create_voice_channel(svsBotsName, category=svsCategor#), overwrites=overwrites)
+        await ctx.guild.create_voice_channel(svsTotalName, category=svsCategory)#, overwrites=overwrites)
+        await ctx.guild.create_voice_channel(svsMembersName, category=svsCategory)#, overwrites=overwrites)
+        await ctx.guild.create_voice_channel(svsBotsName, category=svsCategor)#, overwrites=overwrites)
         await ctx.send("Category has been initiated!")
 
 @client.command()
