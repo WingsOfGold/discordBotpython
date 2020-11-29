@@ -19,14 +19,13 @@ client = commands.Bot(command_prefix = '*')
 
 def getChannel(g, name):
     for c in g.channels:
-        if (c.name == c.find(name)):
+        if (c.name.find(name)):
             return c
     return False
 
 async def updateSvsStats(g):
     await client.get_channel(776501520471949337).send("REached updateSVsStats")
-    aC = getChannel(g, svsTotalName)
-    await aC.edit(name=svsTotalName + str(len(g.members)))
+    await getChannel(g, svsTotalName).edit(name=svsTotalName + str(len(g.members)))
 
 @client.event
 async def on_ready():
