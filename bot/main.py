@@ -26,7 +26,7 @@ def getChannel(g, name):
     return False
 
 async def updateSvsStats(g):
-    await getChannel(g, svsTotalName).edit(name=svsTotalName + str(len(client.get_all_members())))
+    await getChannel(g, svsTotalName).edit(name=svsTotalName + "4")
 
 @client.event
 async def on_ready():
@@ -35,6 +35,8 @@ async def on_ready():
 
 @client.command()
 async def ping(ctx):
+    for member in ctx.guild.members:
+        await ctx.send(member.name)
     await ctx.send(f"Pong? Ah! Ping: {round(client.latency *1000)}ms")
 
 # Server Stats Code:
