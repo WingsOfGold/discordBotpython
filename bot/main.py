@@ -64,7 +64,7 @@ async def svsCtgOff(ctx):
 
 @client.event
 async def on_guild_channel_create(c):
-    if (c.name == svsCategoryName or c.name == svsTotalName):
+    if (c.name == svsTotalName):
         updateSvsStats(c.guild)
 
 #@client.event
