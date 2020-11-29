@@ -48,11 +48,11 @@ async def svsCtgOn(ctx):
         overwrites = {
             every1: discord.PermissionOverwrite(connect=False)
         }
-        svsCategory = await ctx.guild.create_category(svsCategoryName, position=svsCtgPos)
+        svsCategory = await ctx.guild.create_category(svsCategoryName, position=svsCtgPos, overwrites=overwrites)
         await svsCategory.edit(position=svsCtgPos)
-        await ctx.guild.create_voice_channel(svsTotalName, category=svsCategory, overwrites=overwrites)
-        await ctx.guild.create_voice_channel(svsMembersName, category=svsCategory, overwrites=overwrites)
-        await ctx.guild.create_voice_channel(svsBotsName, category=svsCategory, overwrites=overwrites)
+        await ctx.guild.create_voice_channel(svsTotalName, category=svsCategory)
+        await ctx.guild.create_voice_channel(svsMembersName, category=svsCategory)
+        await ctx.guild.create_voice_channel(svsBotsName, category=svsCategory)
         await ctx.send("Category has been initiated!")
 
 @client.command()
