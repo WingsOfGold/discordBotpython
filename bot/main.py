@@ -21,18 +21,18 @@ def getChannel(g, name):
     for c in g.channels:
         n = c.name
         if (n.find(name)):
-            await client.get_channel(776501520471949337).send(f"'{c.name}' and '{name}'")
+            await client.get_channel(782480148011679844).send(f"'{c.name}' and '{name}'")
             return c
     return False
 
 async def updateSvsStats(g):
-    await client.get_channel(776501520471949337).send("REached updateSVsStats")
+    await client.get_channel(782480148011679844).send("REached updateSVsStats")
     await getChannel(g, svsTotalName).edit(name=svsTotalName + str(len(g.members)))
 
 @client.event
 async def on_ready():
     await client.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name="u snitching"))
-    await client.get_channel(776501520471949337).send("I'm ready!")
+    await client.get_channel(782480148011679844).send("I'm ready!")
 
 @client.command()
 async def ping(ctx):
