@@ -69,7 +69,7 @@ async def svsCtgOff(ctx):
 
 @client.event
 async def on_guild_channel_create(c):
-    if (c.name.find(svsTotalName)):
+    if (c.name.find(svsTotalName) > -1):
         await client.get_channel(782480148011679844).send("test")
         updateSvsStats(c.guild)
 
