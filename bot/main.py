@@ -47,15 +47,15 @@ async def svsCtgOn(ctx):
     if (svsCategoryI):
         await ctx.send("It's already on!")
     else:
-        every1 = get(ctx.guild.roles, name="@everyone")
-        overwrites = {
-            every1: discord.PermissionOverwrite(connect=False)
-        }
+        #every1 = get(ctx.guild.roles, name="@everyone")
+        #overwrites = {
+        #    every1: discord.PermissionOverwrite(connect=False)
+        #}
         svsCategory = await ctx.guild.create_category(svsCategoryName, position=svsCtgPos)
         await svsCategory.edit(position=svsCtgPos)
-        await ctx.guild.create_voice_channel(svsTotalName, category=svsCategory, overwrites=overwrites)
-        await ctx.guild.create_voice_channel(svsMembersName, category=svsCategory, overwrites=overwrites)
-        await ctx.guild.create_voice_channel(svsBotsName, category=svsCategor, overwrites=overwrites)
+        await ctx.guild.create_voice_channel(svsTotalName, category=svsCategory#), overwrites=overwrites)
+        await ctx.guild.create_voice_channel(svsMembersName, category=svsCategory#), overwrites=overwrites)
+        await ctx.guild.create_voice_channel(svsBotsName, category=svsCategor#), overwrites=overwrites)
         await ctx.send("Category has been initiated!")
 
 @client.command()
