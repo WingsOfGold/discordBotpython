@@ -23,8 +23,6 @@ def getChannel(g, name):
     for c in g.channels:
         n = c.name
         if (n.find(name)):
-            await client.get_channel(782480148011679844).send(c.name)
-            await client.get_channel(782480148011679844).send(name)
             return c
     return False
 
