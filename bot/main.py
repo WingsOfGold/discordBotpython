@@ -19,7 +19,24 @@ wlcAnouncementsName = "Anouncements"
 botToken = "Nzc2NDAxMTQ3OTc1NTY1MzEz.X60V6g.yN4Y4wmj4RR2yGaXsbhSWUlUv7g"
 
 intents = discord.Intents.default()
+intents.guilds = True
 intents.members = True
+intents.bans = True
+intents.emojis = True
+intents.integrations = True
+intents.webhooks = True
+intents.invites = True
+intents.voice_states = True
+intents.presences = True
+intents.messages = True
+intents.guild_messages = True
+intents.dm_messages = True
+intents.reactions = True
+intents.guild_reactions = True
+intents.dm_reactions = True
+intents.typing = True
+intents.guild_typing = True
+intents.dm_typing = True
 client = commands.Bot(command_prefix='*', intents=intents)
 
 def getChannel(g, name):
