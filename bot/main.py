@@ -56,9 +56,9 @@ async def updateSvsStats(g):
             bot += 1
         else:
             mem += 1
-    await getChannel(g, svsTotalName).edit(name=svsTotalName + " " + str(allMem))
-    await getChannel(g, svsMembersName).edit(name=svsMembersName + " " + str(mem))
     await getChannel(g, svsBotsName).edit(name=svsBotsName + " " + str(bot))
+    await getChannel(g, svsMembersName).edit(name=svsMembersName + " " + str(mem))
+    await getChannel(g, svsTotalName).edit(name=svsTotalName + " " + str(allMem))
 
 @client.event
 async def on_ready():
