@@ -3,21 +3,6 @@ import discord
 from discord.ext import commands
 from discord.utils import get
 
-serverName = "Diamond"
-
-svsCtgPos = 0
-svsCategoryName = serverName + "'s Stats"
-svsTotalName = "All Members:"
-svsMembersName = "Members:"
-svsBotsName = "Bots:"
-
-wlcCtgPos = 1
-wlcCategoryName = "____________welcome____________"
-wlcRulesName = "Rules"
-wlcAnouncementsName = "Anouncements"
-
-botToken = "Nzc2NDAxMTQ3OTc1NTY1MzEz.X60V6g.yN4Y4wmj4RR2yGaXsbhSWUlUv7g"
-
 intents = discord.Intents.default()
 intents.guilds = True
 intents.members = True
@@ -39,6 +24,22 @@ intents.guild_typing = True
 intents.dm_typing = True
 client = commands.Bot(command_prefix='*', intents=intents)
 
+serverName = "Diamond"
+
+svsCtgPos = 0
+svsCategoryName = serverName + "'s Stats"
+svsTotalName = "All Members:"
+svsMembersName = "Members:"
+svsBotsName = "Bots:"
+
+wlcCtgPos = 1
+wlcCategoryName = "____________welcome____________"
+wlcRulesName = "Rules"
+wlcAnouncementsName = "Anouncements"
+
+botToken = "Nzc2NDAxMTQ3OTc1NTY1MzEz.X60V6g.yN4Y4wmj4RR2yGaXsbhSWUlUv7g"
+
+
 def getChannel(g, name):
     for c in g.channels:
         if (c.name.find(name) > -1):
@@ -46,7 +47,18 @@ def getChannel(g, name):
     return False
 
 async def updateSvsStats(g):
-    await getChannel(g, svsTotalName).edit(name=svsTotalName + str(len(g.members)))
+    allMem = 0
+    mem = 0
+    bot = 0
+    for member in g.members:
+        allMem += 1
+        if (member.bot):
+            bot += 1
+        else:
+            mem += 1
+    await getChannel(g, svsTotalName).edit(name=svsTotalName + " " + str(allMem))
+    await getChannel(g, svsMembersName).edit(name=svsMembersName + " " + str(mem))
+    await getChannel(g, svsBotsName).edit(name=svsBotsName + " " + str(bot))
 
 @client.event
 async def on_ready():
