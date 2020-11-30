@@ -36,9 +36,15 @@ wlcCtgPos = 1
 wlcCategoryName = "____________welcome____________"
 wlcRulesName = "Rules"
 wlcAnouncementsName = "Anouncements"
+channelsTable = []
 
 botToken = "Nzc2NDAxMTQ3OTc1NTY1MzEz.X60V6g.yN4Y4wmj4RR2yGaXsbhSWUlUv7g"
-
+"""
+def addChannel(c, cNew=None):
+    for chanTable in channelsTable:
+        if (chanTable[0] == c.name):
+            return False
+        elif (chanTable[0]"""
 
 def getChannel(g, name):
     for c in g.channels:
@@ -100,8 +106,17 @@ async def svsCtgOff(ctx):
 
 @client.event
 async def on_guild_channel_create(c):
+    channelsTable.append([c.name, c.id])
     if (c.name.find(svsTotalName) > -1):
         await updateSvsStats(c.guild)
+
+@client.event
+async def on_guild_channel_delete(c):
+    
+
+@client.event
+async def on_guild_channel_update(cOld, cNew):
+    
 
 #@client.event
 #async def on_member_join(member):
