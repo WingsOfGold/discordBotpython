@@ -18,8 +18,9 @@ wlcAnouncementsName = "Anouncements"
 
 botToken = "Nzc2NDAxMTQ3OTc1NTY1MzEz.X60V6g.yN4Y4wmj4RR2yGaXsbhSWUlUv7g"
 
-iintents = discord.Intents.all()
-client = commands.Bot(command_prefix='*')
+intents = discord.Intents.default()
+intents.members = True
+client = commands.Bot(command_prefix='*', intents=intents)
 
 def getChannel(g, name):
     for c in g.channels:
