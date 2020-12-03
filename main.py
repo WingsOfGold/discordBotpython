@@ -48,7 +48,7 @@ def getChannel(g, name):
     return False
 
 async def updateSvsStats(g):
-        await client.get_channel(782480148011679844).send("I reached!!")
+    await client.get_channel(782480148011679844).send("I reached!!")
     allMem = 0
     mem = 0
     bot = 0
