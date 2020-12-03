@@ -1,6 +1,10 @@
+import sys
+sys.path.append("./exports")
+import test as ex
+
+import Tank
 import random
 import discord
-import exports.test as ex
 from discord.ext import commands
 from discord.utils import get
 
