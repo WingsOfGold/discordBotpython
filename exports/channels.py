@@ -33,6 +33,10 @@ async def updateSvsStats(g):
     await getChannel(g, svsBotsName).edit(name=svsBotsName + " " + str(bot))
     await getChannel(g, svsMembersName).edit(name=svsMembersName + " " + str(mem))
     await getChannel(g, svsTotalName).edit(name=svsTotalName + " " + str(allMem))
+
+@client.command()
+async def tartar(ctx):
+    await ctx.send("I'm here I'm here stop tartaring")
 """
 @client.event
 async def on_guild_channel_create(c):
