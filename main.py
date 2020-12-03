@@ -59,10 +59,6 @@ async def updateSvsStats(g):
     await getChannel(g, svsMembersName).edit(name=svsMembersName + " " + str(mem))
     await getChannel(g, svsTotalName).edit(name=svsTotalName + " " + str(allMem))
 
-@client.command()
-async def tartar(ctx):
-    await ctx.send("I'm here I'm here stop tartaring")
-
 @client.event
 async def on_guild_channel_create(c):
     if (c.name.find(svsTotalName) > -1):
@@ -94,6 +90,7 @@ async def svsCtgOn(ctx):
         await ctx.guild.create_voice_channel(svsTotalName, category=svsCategory)
         await ctx.guild.create_voice_channel(svsMembersName, category=svsCategory)
         await ctx.guild.create_voice_channel(svsBotsName, category=svsCategory)
+        updateSvsStats(ctx.guild)
         await ctx.send("Category has been initiated!")
 
 @client.command()
