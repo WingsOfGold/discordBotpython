@@ -101,6 +101,7 @@ async def svsCtgOff(ctx):
     await ctx.send("Category has been obliterated!")
 
 # Welcome Stats Code:
+@client.command()
 async def wlcCtgOn(ctx):
     wlcCategoryI = getChannel(ctx.guild, wlcCategoryName)
     svsCategoryI = getChannel(ctx.guild, svsCategoryName)
