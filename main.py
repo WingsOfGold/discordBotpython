@@ -48,6 +48,7 @@ def getChannel(g, name):
     return False
 
 async def updateSvsStats(g):
+        await client.get_channel(782480148011679844).send("I reached!!")
     allMem = 0
     mem = 0
     bot = 0
@@ -60,11 +61,12 @@ async def updateSvsStats(g):
     await client.getChannel(svsTotalName).edit(name=svsTotalName + " " + str(777))
     await client.getChannel(svsMembersName).edit(name=svsMembersName + " " + str(mem))
     await client.getChannel(svsBotsName).edit(name=svsBotsName + " " + str(bot))
+        await client.get_channel(782480148011679844).send("I'm done!!")
 
 @client.event
 async def on_guild_channel_create(c):
-    await client.get_channel(782480148011679844).send(c.name.find(svsTotalName) )
     if (c.name.find(svsTotalName) > -1):
+        await client.get_channel(782480148011679844).send("I'm in!!")
         await updateSvsStats(c.guild)
 
 @client.event
