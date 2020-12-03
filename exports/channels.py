@@ -1,4 +1,5 @@
 import discord
+from discord.ext import commands
 from discord.utils import get
 
 serverName = "Diamond"
@@ -13,8 +14,6 @@ wlcCtgPos = 1
 wlcCategoryName = "____________welcome____________"
 wlcRulesName = "Rules"
 wlcAnouncementsName = "Anouncements"
-
-channelsTable = []
 
 def getChannel(g, name):
     for c in g.channels:
@@ -46,28 +45,16 @@ async def on_member_remove(member):
 
 @client.event
 async def on_guild_channel_create(c):
-    channelsTable.append([c.name, c.id])
     if (c.name.find(svsTotalName) > -1):
         await updateSvsStats(c.guild)
 
 @client.event
 async def on_guild_channel_update(cOld, cNew):
-    n = -1
-    for chanTab in channelsTable:
-        n += 1
-        if (chanTab[0] == cOld.name):
-            chanTab[0] = cNew.name
-            chanTab[1] = cNew.id
     if (c.name.find(svsTotalName) > -1):
         await updateSvsStats(c.guild)
 
 @client.event
 async def on_guild_channel_delete(c):
-    n = -1
-    for chanTab in channelsTable:
-        n += 1
-        if (chanTab[0] == c.name):
-            channelsTable.pop(n)
     if (c.name.find(svsTotalName) > -1):
         await updateSvsStats(c.guild)
 
