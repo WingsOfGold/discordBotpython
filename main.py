@@ -1,7 +1,7 @@
 import random
 import discord
 from discord.ext import commands
-from exports import channels
+#from exports import channels
 
 intents = discord.Intents.default()
 intents.guilds = True
