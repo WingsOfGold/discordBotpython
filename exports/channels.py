@@ -33,14 +33,6 @@ async def updateSvsStats(g):
     await getChannel(g, svsBotsName).edit(name=svsBotsName + " " + str(bot))
     await getChannel(g, svsMembersName).edit(name=svsMembersName + " " + str(mem))
     await getChannel(g, svsTotalName).edit(name=svsTotalName + " " + str(allMem))
-
-@client.event
-async def on_member_join(member):
-    await updateSvsStats(member.guild)
-
-@client.event
-async def on_member_remove(member):
-    await updateSvsStats(member.guild)
 """
 @client.event
 async def on_guild_channel_create(c):
