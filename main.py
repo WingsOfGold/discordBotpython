@@ -41,6 +41,7 @@ wlcAnouncementsName = "Anouncements"
 
 def getChannel(g, name):
     for c in g.channels:
+        await client.get_channel(782480148011679844).send(f"{c.name} & {name}")
         if (c.name.find(name) > -1):
             return c
     return False
