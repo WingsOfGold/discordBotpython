@@ -36,15 +36,8 @@ wlcCtgPos = 1
 wlcCategoryName = "____________welcome____________"
 wlcRulesName = "Rules"
 wlcAnouncementsName = "Anouncements"
-#channelsTable = []
 
 botToken = "Nzc2NDAxMTQ3OTc1NTY1MzEz.X60V6g.yN4Y4wmj4RR2yGaXsbhSWUlUv7g"
-
-#def addChannel(c, cNew=None):
-#    for chanTable in channelsTable:
-#        if (chanTable[0] == c.name):
-#            return False
-#        elif (chanTable[0]
 
 def getChannel(g, name):
     for c in g.channels:
