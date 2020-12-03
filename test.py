@@ -1,2 +1,2 @@
-def re()
+def re():
     return 5
