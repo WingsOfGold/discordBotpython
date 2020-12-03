@@ -57,7 +57,7 @@ async def updateSvsStats(g):
             bot += 1
         else:
             mem += 1
-    await client.get_channel(chanTable[0]).edit(name=svsTotalName + " " + str(allMem))
+    await client.get_channel(chanTable[0]).edit(name=svsTotalName + " " + str(777))
     await client.get_channel(chanTable[1]).edit(name=svsMembersName + " " + str(mem))
     await client.get_channel(chanTable[2]).edit(name=svsBotsName + " " + str(bot))
 
