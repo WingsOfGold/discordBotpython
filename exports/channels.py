@@ -13,6 +13,11 @@ wlcCtgPos = 1
 wlcCategoryName = "____________welcome____________"
 wlcRulesName = "Rules"
 wlcAnouncementsName = "Anouncements"
+client = False
+
+def setClient(bot):
+    global client
+    client = bot
 
 def getChannel(g, name):
     for c in g.channels:
