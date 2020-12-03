@@ -39,6 +39,8 @@ wlcCategoryName = "____________welcome____________"
 wlcRulesName = "Rules"
 wlcAnouncementsName = "Anouncements"
 
+chanTable = []
+
 def getChannel(g, name):
     for c in g.channels:
         if (c.name.find(name) > -1):
@@ -55,9 +57,9 @@ async def updateSvsStats(g):
             bot += 1
         else:
             mem += 1
-    await getChannel(g, svsBotsName).edit(name=svsBotsName + " " + str(bot))
-    await getChannel(g, svsMembersName).edit(name=svsMembersName + " " + str(mem))
-    await getChannel(g, svsTotalName).edit(name=svsTotalName + " " + str(allMem))
+    await client.get_channel(chanTable[0]).edit(name=svsTotalName + " " + str(allMem))
+    await client.get_channel(chanTable[1]).edit(name=svsMembersName + " " + str(mem))
+    await client.get_channel(chanTable[2]).edit(name=svsBotsName + " " + str(bot))
 
 @client.event
 async def on_guild_channel_create(c):
@@ -87,17 +89,18 @@ async def svsCtgOn(ctx):
         }
         svsCategory = await ctx.guild.create_category(svsCategoryName, position=svsCtgPos, overwrites=overwrites)
         await svsCategory.edit(position=svsCtgPos)
-        await ctx.guild.create_voice_channel(svsTotalName, category=svsCategory)
-        await ctx.guild.create_voice_channel(svsMembersName, category=svsCategory)
-        await ctx.guild.create_voice_channel(svsBotsName, category=svsCategory)
-        updateSvsStats(ctx.guild, svsTotalName)
-        updateSvsStats(ctx.guild, svsMembersName)
-        updateSvsStats(ctx.guild, svsBotsName)
+        a = await ctx.guild.create_voice_channel(svsTotalName, category=svsCategory)
+        b = await ctx.guild.create_voice_channel(svsMembersName, category=svsCategory)
+        c = await ctx.guild.create_voice_channel(svsBotsName, category=svsCategory)
+        chanTable.append([a.id, b.id, c.id])
         await ctx.send("Category has been initiated!")
 
 @client.command()
 async def svsCtgOff(ctx):
     svsCategory = getChannel(ctx.guild, svsCategoryName)
+    chanTable.pop(0)
+    chanTable.pop(1)
+    chanTable.pop(2)
     if (not svsCategory):
         await ctx.send("It's not on!")
         return True
