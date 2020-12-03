@@ -1,7 +1,6 @@
 import random
 import discord
 from discord.ext import commands
-from exports import channels
 
 intents = discord.Intents.default()
 intents.guilds = True
@@ -23,6 +22,9 @@ intents.typing = True
 intents.guild_typing = True
 intents.dm_typing = True
 client = commands.Bot(command_prefix='*', intents=intents)
+
+from exports import channels
+channels.setClient(client)
 
 botToken = "Nzc2NDAxMTQ3OTc1NTY1MzEz.X60V6g.yN4Y4wmj4RR2yGaXsbhSWUlUv7g"
 
