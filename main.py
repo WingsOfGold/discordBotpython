@@ -1,7 +1,5 @@
 import discord
-import sys
-sys.path.append("./exports")
-import test as ex
+import exports.test as ex
 
 botToken = "Nzc2NDAxMTQ3OTc1NTY1MzEz.X60V6g.yN4Y4wmj4RR2yGaXsbhSWUlUv7g"
 @client.event
