@@ -58,11 +58,11 @@ async def updateSvsStats(g):
         else:
             mem += 1
     await client.get_channel(782480148011679844).send("I 1!!")
-    await client.getChannel(svsTotalName).edit(name=svsTotalName + " " + str(777))
+    await client.getChannel(g, svsTotalName).edit(name=svsTotalName + " " + str(777))
     await client.get_channel(782480148011679844).send("I 2!!")
-    await client.getChannel(svsMembersName).edit(name=svsMembersName + " " + str(mem))
+    await client.getChannel(g, svsMembersName).edit(name=svsMembersName + " " + str(mem))
     await client.get_channel(782480148011679844).send("I 3!!")
-    await client.getChannel(svsBotsName).edit(name=svsBotsName + " " + str(bot))
+    await client.getChannel(g, svsBotsName).edit(name=svsBotsName + " " + str(bot))
     await client.get_channel(782480148011679844).send("I'm done!!")
 
 @client.event
