@@ -38,11 +38,11 @@ async def updateSvsStats(g):
 
 @client.event
 async def on_member_join(member):
-    updateSvsStats(member.guild)
+    await updateSvsStats(member.guild)
 
 @client.event
 async def on_member_remove(member):
-    updateSvsStats(member.guild)
+    await updateSvsStats(member.guild)
 
 @client.event
 async def on_guild_channel_create(c):
