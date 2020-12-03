@@ -1,5 +1,6 @@
 import random
 import discord
+import exports.test as ex
 from discord.ext import commands
 from discord.utils import get
 
@@ -25,6 +26,7 @@ intents.dm_typing = True
 client = commands.Bot(command_prefix='*', intents=intents)
 
 serverName = "Diamond"
+botToken = "Nzc2NDAxMTQ3OTc1NTY1MzEz.X60V6g.yN4Y4wmj4RR2yGaXsbhSWUlUv7g"
 
 svsCtgPos = 0
 svsCategoryName = serverName + "'s Stats"
@@ -37,7 +39,42 @@ wlcCategoryName = "____________welcome____________"
 wlcRulesName = "Rules"
 wlcAnouncementsName = "Anouncements"
 
-botToken = "Nzc2NDAxMTQ3OTc1NTY1MzEz.X60V6g.yN4Y4wmj4RR2yGaXsbhSWUlUv7g"
+channelsTable = []
+
+@client.event
+async def on_guild_channel_create(c):
+    channelsTable.append([c.name, c.id])
+    if (c.name.find(svsTotalName) > -1):
+        await updateSvsStats(c.guild)
+
+@client.event
+async def on_guild_channel_delete(c):
+    n = -1
+    for chanTab in channelsTable:
+        n += 1
+        if (chanTab[0] == c.name):
+            channelsTable.pop(n)
+    if (c.name.find(svsTotalName) > -1):
+        await updateSvsStats(c.guild)
+
+#@client.event
+#async def on_member_join(member):
+    #updateSvsStats(member.guild)
+
+#@client.event
+#async def on_member_remove(member):
+    #updateSvsStats(member.guild)
+@client.event
+
+async def on_guild_channel_update(cOld, cNew):
+    n = -1
+    for chanTab in channelsTable:
+        n += 1
+        if (chanTab[0] == cOld.name):
+            chanTab[0] = cNew.name
+            chanTab[1] = cNew.id
+    if (c.name.find(svsTotalName) > -1):
+        await updateSvsStats(c.guild)
 
 def getChannel(g, name):
     for c in g.channels:
@@ -58,11 +95,6 @@ async def updateSvsStats(g):
     await getChannel(g, svsBotsName).edit(name=svsBotsName + " " + str(bot))
     await getChannel(g, svsMembersName).edit(name=svsMembersName + " " + str(mem))
     await getChannel(g, svsTotalName).edit(name=svsTotalName + " " + str(allMem))
-
-@client.event
-async def on_ready():
-    await client.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name="u snitching"))
-    await client.get_channel(782480148011679844).send("I'm ready!")
 
 @client.command()
 async def ping(ctx):
@@ -96,28 +128,6 @@ async def svsCtgOff(ctx):
         await channel.delete()
     await svsCategory.delete()
     await ctx.send("Category has been obliterated!")
-
-@client.event
-async def on_guild_channel_create(c):
-    channelsTable.append([c.name, c.id])
-    if (c.name.find(svsTotalName) > -1):
-        await updateSvsStats(c.guild)
-
-@client.event
-async def on_guild_channel_delete(c):
-    
-
-@client.event
-async def on_guild_channel_update(cOld, cNew):
-    
-
-#@client.event
-#async def on_member_join(member):
-    #updateSvsStats(member.guild)
-
-#@client.event
-#async def on_member_remove(member):
-    #updateSvsStats(member.guild)
 
 # Welcome Category Code:
 @client.command()
@@ -194,4 +204,9 @@ async def _8ball(ctx, *, question):
                  'Very doubtful.']
     await ctx.send(f'Question: {question}\nAnswer: {random.choice(responses)}')
 
+@client.event
+async def on_ready():
+    await client.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name="u snitching"))
+    await client.get_channel(782480148011679844).send("I'm ready!")
+    await client.get_channel(782480148011679844).send(ex.re)
 client.run(botToken)
