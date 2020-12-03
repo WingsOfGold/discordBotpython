@@ -13,6 +13,6 @@ async def ping(ctx):
 @client.event
 async def on_ready():
     await client.get_channel(782480148011679844).send("I'm ready!")
-    #await client.get_channel(782480148011679844).send(r)
+    await client.get_channel(782480148011679844).send(test.re())
 
 client.run(botToken)
