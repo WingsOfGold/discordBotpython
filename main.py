@@ -48,7 +48,6 @@ def getChannel(g, name):
     return False
 
 async def updateSvsStats(g):
-    await client.get_channel(782480148011679844).send("I reached!!")
     allMem = 0
     mem = 0
     bot = 0
@@ -58,8 +57,11 @@ async def updateSvsStats(g):
             bot += 1
         else:
             mem += 1
+    await client.get_channel(782480148011679844).send("I 1!!")
     await client.getChannel(svsTotalName).edit(name=svsTotalName + " " + str(777))
+    await client.get_channel(782480148011679844).send("I 2!!")
     await client.getChannel(svsMembersName).edit(name=svsMembersName + " " + str(mem))
+    await client.get_channel(782480148011679844).send("I 3!!")
     await client.getChannel(svsBotsName).edit(name=svsBotsName + " " + str(bot))
     await client.get_channel(782480148011679844).send("I'm done!!")
 
