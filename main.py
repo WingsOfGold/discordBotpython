@@ -39,9 +39,8 @@ wlcCategoryName = "____________welcome____________"
 wlcRulesName = "Rules"
 wlcAnouncementsName = "Anouncements"
 
-async def getChannel(g, name):
+def getChannel(g, name):
     for c in g.channels:
-        await client.get_channel(782480148011679844).send(f"{c.name} & {name}")
         if (c.name.find(name) > -1):
             return c
     return False
@@ -78,7 +77,7 @@ async def on_guild_channel_delete(c):
 # Server Stats Code:
 @client.command()
 async def svsCtgOn(ctx):
-    svsCategoryI = await getChannel(ctx.guild, svsCategoryName)
+    svsCategoryI = getChannel(ctx.guild, svsCategoryName)
     if (svsCategoryI):
         await ctx.send("It's already on!")
     else:
@@ -98,7 +97,7 @@ async def svsCtgOn(ctx):
 
 @client.command()
 async def svsCtgOff(ctx):
-    svsCategory = await getChannel(ctx.guild, svsCategoryName)
+    svsCategory = getChannel(ctx.guild, svsCategoryName)
     if (not svsCategory):
         await ctx.send("It's not on!")
         return True
@@ -110,8 +109,8 @@ async def svsCtgOff(ctx):
 # Welcome Stats Code:
 @client.command()
 async def wlcCtgOn(ctx):
-    wlcCategoryI = await getChannel(ctx.guild, wlcCategoryName)
-    svsCategoryI = await getChannel(ctx.guild, svsCategoryName)
+    wlcCategoryI = getChannel(ctx.guild, wlcCategoryName)
+    svsCategoryI = getChannel(ctx.guild, svsCategoryName)
     if (wlcCategoryI):
         await ctx.send("It's already on!")
     else:
@@ -148,7 +147,7 @@ async def wlcCtgOn(ctx):
 
 @client.command()
 async def wlcCtgOff(ctx):
-    wlcCategoryI = await getChannel(ctx.guild, wlcCategoryName)
+    wlcCategoryI = getChannel(ctx.guild, wlcCategoryName)
     if (not wlcCategoryI):
         await ctx.send("It's not on!")
         return True
