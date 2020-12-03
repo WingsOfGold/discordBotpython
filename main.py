@@ -61,7 +61,7 @@ async def updateSvsStats(g):
     await client.getChannel(svsTotalName).edit(name=svsTotalName + " " + str(777))
     await client.getChannel(svsMembersName).edit(name=svsMembersName + " " + str(mem))
     await client.getChannel(svsBotsName).edit(name=svsBotsName + " " + str(bot))
-        await client.get_channel(782480148011679844).send("I'm done!!")
+    await client.get_channel(782480148011679844).send("I'm done!!")
 
 @client.event
 async def on_guild_channel_create(c):
