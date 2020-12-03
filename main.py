@@ -91,7 +91,9 @@ async def svsCtgOn(ctx):
         await ctx.guild.create_voice_channel(svsTotalName, category=svsCategory)
         await ctx.guild.create_voice_channel(svsMembersName, category=svsCategory)
         await ctx.guild.create_voice_channel(svsBotsName, category=svsCategory)
-        updateSvsStats(ctx.guild)
+        updateSvsStats(ctx.guild, svsTotalName)
+        updateSvsStats(ctx.guild, svsMembersName)
+        updateSvsStats(ctx.guild, svsBotsName)
         await ctx.send("Category has been initiated!")
 
 @client.command()
