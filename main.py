@@ -57,12 +57,13 @@ async def updateSvsStats(g):
             bot += 1
         else:
             mem += 1
-    await client.get_channel(chanTable[0]).edit(name=svsTotalName + " " + str(777))
-    await client.get_channel(chanTable[1]).edit(name=svsMembersName + " " + str(mem))
-    await client.get_channel(chanTable[2]).edit(name=svsBotsName + " " + str(bot))
+    await client.getChannel(svsTotalName).edit(name=svsTotalName + " " + str(777))
+    await client.getChannel(svsMembersName).edit(name=svsMembersName + " " + str(mem))
+    await client.getChannel(svsBotsName).edit(name=svsBotsName + " " + str(bot))
 
 @client.event
 async def on_guild_channel_create(c):
+    await client.get_channel(782480148011679844).send(c.name.find(svsTotalName) )
     if (c.name.find(svsTotalName) > -1):
         await updateSvsStats(c.guild)
 
@@ -92,15 +93,11 @@ async def svsCtgOn(ctx):
         a = await ctx.guild.create_voice_channel(svsTotalName, category=svsCategory)
         b = await ctx.guild.create_voice_channel(svsMembersName, category=svsCategory)
         c = await ctx.guild.create_voice_channel(svsBotsName, category=svsCategory)
-        chanTable.append([a.id, b.id, c.id])
         await ctx.send("Category has been initiated!")
 
 @client.command()
 async def svsCtgOff(ctx):
     svsCategory = getChannel(ctx.guild, svsCategoryName)
-    chanTable.pop(0)
-    chanTable.pop(0)
-    chanTable.pop(0)
     if (not svsCategory):
         await ctx.send("It's not on!")
         return True
