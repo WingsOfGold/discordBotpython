@@ -1,6 +1,6 @@
 import discord
 from discord.ext import commands
-import exports.test as ex
+from exports.test import re as r
 
 client = commands.Bot(command_prefix='*')#, intents=intents)
 botToken = "Nzc2NDAxMTQ3OTc1NTY1MzEz.X60V6g.yN4Y4wmj4RR2yGaXsbhSWUlUv7g"
@@ -13,6 +13,6 @@ async def ping(ctx):
 @client.event
 async def on_ready():
     await client.get_channel(782480148011679844).send("I'm ready!")
-    #await client.get_channel(782480148011679844).send(ex.re)
+    #await client.get_channel(782480148011679844).send(r)
 
 client.run(botToken)
