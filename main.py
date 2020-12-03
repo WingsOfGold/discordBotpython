@@ -99,8 +99,8 @@ async def svsCtgOn(ctx):
 async def svsCtgOff(ctx):
     svsCategory = getChannel(ctx.guild, svsCategoryName)
     chanTable.pop(0)
-    chanTable.pop(1)
-    chanTable.pop(2)
+    chanTable.pop(0)
+    chanTable.pop(0)
     if (not svsCategory):
         await ctx.send("It's not on!")
         return True
